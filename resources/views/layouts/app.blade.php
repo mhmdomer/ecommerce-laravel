@@ -4,6 +4,7 @@
 <body>
     <div id="app">
         @include('partials.nav')
+        @include('partials.session')
         <main class="py-4">
             @yield('content')
         </main>
