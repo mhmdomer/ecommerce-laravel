@@ -49338,6 +49338,8 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./main */ "./resources/js/main.js");
+
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /**
  * The following block of code may be used to automatically register your
@@ -49350,11 +49352,14 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component('example-component', __webpack_require__(/*! ./components/ExampleComponent.vue */ "./resources/js/components/ExampleComponent.vue")["default"]);
+
+__webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+
 
 var app = new Vue({
   el: '#app'
@@ -49476,6 +49481,49 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/main.js":
+/*!******************************!*\
+  !*** ./resources/js/main.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(function () {
+  $(".hero-text").animate({
+    left: '100px',
+    top: '100px'
+  }, 1500);
+  $('.heart').click(function (e) {
+    e.preventDefault();
+
+    if ($(this).find('i').attr('class') == 'fa fa-heart') {
+      $(this).find('i').attr('class', 'fa fa-heart-o');
+    } else {
+      $(this).find('i').attr('class', 'fa fa-heart');
+    }
+  });
+  $('.like').click(function (e) {
+    e.preventDefault();
+
+    if ($(this).find('i').attr('class') == 'fa fa-thumbs-up') {
+      $(this).find('i').attr('class', 'fa fa-thumbs-o-up');
+    } else {
+      $(this).find('i').attr('class', 'fa fa-thumbs-up');
+    }
+  });
+  $('.cart').click(function (e) {
+    e.preventDefault();
+
+    if ($(this).find('i').attr('class') == 'fa fa-shopping-cart') {
+      $(this).find('i').attr('class', 'fal fa-shopping-cart');
+    } else {
+      $(this).find('i').attr('class', 'fa fa-shopping-cart');
+    }
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -49494,8 +49542,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! c:\xampp\htdocs\ecommerce\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! c:\xampp\htdocs\ecommerce\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\ecommerce\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\ecommerce\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
