@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container" style="margin-top:5em">
+<div class="container">
     <div class="row" style="margin-bottom: 3em">
         <div class="col-md-5 product-image">
             <img src="{{ Asset('images/back.jpg') }}" height="350px" width="350px">

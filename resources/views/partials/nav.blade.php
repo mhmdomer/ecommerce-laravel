@@ -18,7 +18,14 @@
                     <a class="nav-link" href="#">Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('cart.index') }}">Cart</a>
+                    <a class="nav-link" href="{{ route('cart.index') }}">
+                        Cart 
+                        @if (Cart::instance('default')->count() > 0)
+                            <span class="badge badge-primary">
+                                {{ Cart::instance('default')->count() }}
+                            </span>
+                        @endif
+                    </a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">

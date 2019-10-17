@@ -3,28 +3,28 @@
 @section('content')
 
 <!-- start page content -->
-<div class="container" style="margin-top:3em">
+<div class="container">
         <div class="row">
             <!-- start filter section -->
             <div class="col-md-2" style="margin-top:1em">
                 <h4 class="filter-header">
                     By category
                 </h4>
-                <ul>
-                    <li><a href="">Laptops</a></li>
-                    <li><a href="">Desktops</a></li>
-                    <li><a href="">Mobile Phones</a></li>
-                    <li><a href="">Tablets</a></li>
-                    <li><a href="">TVs</a></li>
-                    <li><a href="">Digital Cameras</a></li>
+                <ul class="filter-ul">
+                    <li><a class="text-center" href="">Laptops</a></li>
+                    <li><a class="text-center" href="">Desktops</a></li>
+                    <li><a class="text-center" href="">Mobile Phones</a></li>
+                    <li><a class="text-center" href="">Tablets</a></li>
+                    <li><a class="text-center" href="">TVs</a></li>
+                    <li><a class="text-center" href="">Digital Cameras</a></li>
                 </ul>
                 <h4 class="filter-header">
                     By price
                 </h4>
-                <ul>
-                    <li><a href="">$0 - $700</a></li>
-                    <li><a href="">$700 - $2500</a></li>
-                    <li><a href="">$2500+</a></li>
+                <ul class="filter-ul">
+                    <li><a class="text-center" href="">$0 - $700</a></li>
+                    <li><a class="text-center" href="">$700 - $2500</a></li>
+                    <li><a class="text-center" href="">$2500+</a></li>
                 </ul>
             </div>
             <!-- end filter section -->

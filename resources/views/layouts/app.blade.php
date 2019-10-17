@@ -4,8 +4,9 @@
 <body>
     <div id="app">
         @include('partials.nav')
-        @include('partials.session')
-        <main class="py-4">
+        <main class="py-4" style="margin-top:4em">
+            @include('partials.session')
+            @include('partials.errors')
             @yield('content')
         </main>
         @include('partials.footer')
