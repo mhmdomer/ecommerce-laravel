@@ -80,7 +80,7 @@
                                 </a>
                             </td>
                             <td>
-                                <span class="badge badge-info">1</span>
+                                <span class="badge badge-info">{{ $item->qty }}</span>
                             </td>
                         </tr>
                     @endforeach

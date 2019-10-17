@@ -32,6 +32,12 @@ class CartController extends Controller
         return redirect()->route('cart.index');
     }
 
+    public function update($id) {
+        Cart::instance('default')->update($id, request()->quantity);
+        session()->flash('success', 'quantity updated successfully!');
+        return response()->json(['success' => ''], 200);
+    }
+
     public function destroy($id) {
         Cart::remove($id);
         session()->flash('success', 'item has been removed');

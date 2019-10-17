@@ -13,6 +13,7 @@ Route::post('/cart', 'CartController@store')->name('cart.store');
 Route::delete('/cart/{product}', 'CartController@destroy')->name('cart.destroy');
 Route::post('/cart/save-later/{product}', 'CartController@saveLater')->name('cart.save-later');
 Route::post('/cart/add-to-cart/{product}', 'CartController@addToCart')->name('cart.add-to-cart');
+Route::patch('/cart/{product}', 'CartController@update')->name('cart.update');
 
 
 // checkout

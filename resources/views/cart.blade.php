@@ -34,26 +34,15 @@
                                     <button type="submit" class="cart-option text-decoration-none">save for later</button>
                                 </form>
                             </td>
-                            <td>
-                                <div class="center">
-                                    <div class="input-group">
-                                        <span class="input-group-btn">
-                                            <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
-                                            <span class="glyphicon glyphicon-minus"></span>
-                                            </button>
-                                        </span>
-                                        <input width="1em" type="text" name="quant[2]" class="form-control input-number" value="10" min="1" max="100">
-                                        <span class="input-group-btn">
-                                            <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
-                                                <span class="glyphicon glyphicon-plus"></span>
-                                            </button>
-                                        </span>
-                                    </div>
-                                </div>
+                            <td class="">
+                                <select class='quantity' data-id='{{ $item->rowId }}'>
+                                    @for ($i = 1; $i < 10; $i++)
+                                        <option class="option" value="{{ $i }}" {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
+                                    @endfor
+                                </select>
                             </td>
-                            <td>${{ $item->model->price }}</td>
+                            <td>${{ $item->subtotal }}</td>
                         </tr>
-                        {{-- <hr> --}}
                     @endforeach
                 </tbody>
             </table>
@@ -143,5 +132,25 @@
 </div>
 @include('partials.might-like')
 <!-- end page content -->
+
+@endsection
+
+@section('scripts')
+
+<script type="text/javascript">
+
+$(document).ready(function () {
+    $('.quantity').on('change', function() {
+        axios.patch('/cart/' + this.getAttribute('data-id'), {quantity: this.value})
+            .then(response => {
+                console.log(response)
+                window.location.href = '{{ route('cart.index') }}'
+            }).catch(error => {
+                console.log(error)
+            })
+    });
+});
+
+</script>
 
 @endsection
