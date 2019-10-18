@@ -15,6 +15,7 @@ class CartController extends Controller
     }
 
     public function store() {
+        session()->forget('coupon');
         $duplicates = Cart::instance('default')->search(function($cartItem, $rowId) {
             return $cartItem->id == request()->id;
         });
@@ -33,18 +34,21 @@ class CartController extends Controller
     }
 
     public function update($id) {
+        session()->forget('coupon');
         Cart::instance('default')->update($id, request()->quantity);
         session()->flash('success', 'quantity updated successfully!');
         return response()->json(['success' => ''], 200);
     }
 
     public function destroy($id) {
+        session()->forget('coupon');
         Cart::remove($id);
         session()->flash('success', 'item has been removed');
         return back();
     }
-
+    
     public function saveLater($id) {
+        session()->forget('coupon');
         $item = Cart::get($id);
         Cart::remove($id);
         $duplicates = Cart::instance('saveForLater')->search(function($cartItem, $rowId) use ($id) {
@@ -58,8 +62,9 @@ class CartController extends Controller
         session()->flash('success', 'Item has been saved for later');
         return redirect()->route('cart.index');
     }
-
+    
     public function addToCart($id) {
+        session()->forget('coupon');
         $item = Cart::instance('saveForLater')->get($id);
         Cart::instance('saveForLater')->remove($id);
         $exist = Cart::instance('default')->search(function($cartItem, $rowId) use($item) {

@@ -20,6 +20,10 @@ Route::patch('/cart/{product}', 'CartController@update')->name('cart.update');
 Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
 
 
+// coupon
+Route::post('/coupon', 'CouponsController@store')->name('coupon.store');
+Route::delete('/coupon/', 'CouponsController@destroy')->name('coupon.destroy');
+
 Route::get('empty', function () {
     Cart::destroy();
     Cart::instance('saveForLater')->destroy();

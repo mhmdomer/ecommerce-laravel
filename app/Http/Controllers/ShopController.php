@@ -16,7 +16,7 @@ class ShopController extends Controller
             $products = Product::where('category_id', $category->id);
             $categoryName = $category->name;
         } else {
-            $products = Product::where('featured', true);
+            $products = Product::inRandomOrder()->where('featured', true);
             $categoryName = 'Featured';
         }
         if(request()->sort == 'low_high') {
@@ -24,7 +24,7 @@ class ShopController extends Controller
         } else if(request()->sort == 'high_low') {
             $products = $products->orderBy('price', 'desc')->paginate(9);
         } else {
-            $products = $products->inRandomOrder()->paginate(9);
+            $products = $products->orderBy('id')->paginate(9);
         }
         $categories = Category::all();
         return view('shop')->with([

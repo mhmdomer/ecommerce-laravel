@@ -13875,3 +13875,18 @@ a.custom-card:hover {
   border-left: 1px solid #bbb;
 }
 
+.form-inline {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.inline-form-button {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background-color: #eee;
+  font-size: 13px;
+  color: #444;
+}
+

@@ -92,15 +92,40 @@
                     <span class="light-text">Subtotal</span>
                 </div>
                 <div class="col-md-4 offset-md-4">
-                    <span class="light-text" style="display: inline-block">${{ Cart::instance('default')->subtotal() }}</span>
+                    <span class="light-text" style="display: inline-block">${{ number_format($subtotal, 2) }}</span>
                 </div>
             </div>
+            @if (session()->has('coupon'))
+                <div class="row">
+                    <div class="col-md-4">
+                        <span class="light-text inline">Discount({{ session('coupon')['code'] }})</span>
+                    </div>
+                    <div class="col-md-4">
+                        <form class="form-inline" action="{{ route('coupon.destroy') }}" method="POST" style="display:inline">
+                            @csrf()
+                            @method('DELETE')
+                            <button class="inline-form-button" type="submit">Remove</button>
+                        </form>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="light-text" style="display: inline">- ${{ number_format($discount, 2) }}</span>
+                    </div>
+                </div><hr>
+                <div class="row">
+                    <div class="col-md-4">
+                        <span class="light-text">New Subtotal</span>
+                    </div>
+                    <div class="col-md-4 offset-md-4">
+                        <span class="light-text" style="display: inline-block">${{ number_format($newSubtotal, 2) }}</span>
+                    </div>
+                </div>
+            @endif
             <div class="row">
                 <div class="col-md-4">
                     <span class="light-text">Tax(21%)</span>
                 </div>
                 <div class="col-md-4 offset-md-4">
-                    <span class="light-text" style="display: inline-block">${{ Cart::instance('default')->tax() }}</span>
+                    <span class="light-text" style="display: inline-block">${{ number_format($tax, 2) }}</span>
                 </div>
             </div>
             <div class="row">
@@ -108,10 +133,18 @@
                     <span>Total</span>
                 </div>
                 <div class="col-md-4 offset-md-4">
-                    <span class="text-right" style="display: inline-block">${{ Cart::instance('default')->total() }}</span>
+                    <span class="text-right" style="display: inline-block">${{ number_format($total, 2) }}</span>
                 </div>
             </div>
             <hr>
+            @if (!session()->has('coupon'))
+                <form action="{{ route('coupon.store') }}" method="POST">
+                    @csrf()
+                    <label for="coupon_code">Have a coupon ?</label>
+                    <input type="text" name="coupon_code" id="coupon" class="form-control my-input" placeholder="123456">
+                    <button type="submit" class="btn btn-success custom-border-success btn-block">Apply Coupon</button>
+                </form>
+            @endif
         </div>
     </div>
 </div>
