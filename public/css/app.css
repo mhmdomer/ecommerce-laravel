@@ -13861,3 +13861,17 @@ a.custom-card:hover {
   background-color: #777;
 }
 
+.active-sort {
+  background-color: green;
+  color: white;
+  border: 1px solid green;
+  border-radius: 4px;
+  padding: 0.3em;
+}
+
+.active-cat {
+  background-color: #eee;
+  color: #222;
+  border-left: 1px solid #bbb;
+}
+

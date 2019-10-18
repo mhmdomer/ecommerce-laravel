@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row" style="margin-bottom: 3em">
         <div class="col-md-5 product-image">
-            <img src="{{ Asset('images/back.jpg') }}" height="350px" width="350px">
+            <img src="{{ Asset('images/products/' . $product->image) }}" height="350px" width="350px">
         </div>
         <div class="product-details col-md-5">
             <h2 class="lead">{{ $product->name }}</h2>

@@ -12,61 +12,71 @@ class ProductsTableSeeder extends Seeder
      */
     public function run()
     {
-        Product::create([
-            'name' => 'laptop1',
-            'slug' => 'laptop-1',
-            'details' => '15 inches 1TB SSD 16 GB RAM',
-            'price' => 1000,
-            'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, nisi. Exercitationem, explicabo obcaecati dicta libero inventore soluta ducimus, necessitatibus quaerat magnam sapiente mollitia eum beatae quidem et perferendis quis similique.',
-        ]);
-        Product::create([
-            'name' => 'laptop2',
-            'slug' => 'laptop-2',
-            'details' => '15 inches 1TB SSD 16 GB RAM',
-            'price' => 1000,
-            'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, nisi. Exercitationem, explicabo obcaecati dicta libero inventore soluta ducimus, necessitatibus quaerat magnam sapiente mollitia eum beatae quidem et perferendis quis similique.',
-        ]);
-        Product::create([
-            'name' => 'laptop3',
-            'slug' => 'laptop-3',
-            'details' => '15 inches 1TB SSD 16 GB RAM',
-            'price' => 1000,
-            'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, nisi. Exercitationem, explicabo obcaecati dicta libero inventore soluta ducimus, necessitatibus quaerat magnam sapiente mollitia eum beatae quidem et perferendis quis similique.',
-        ]);
-        Product::create([
-            'name' => 'laptop4',
-            'slug' => 'laptop-4',
-            'details' => '15 inches 1TB SSD 16 GB RAM',
-            'price' => 1000,
-            'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, nisi. Exercitationem, explicabo obcaecati dicta libero inventore soluta ducimus, necessitatibus quaerat magnam sapiente mollitia eum beatae quidem et perferendis quis similique.',
-        ]);
-        Product::create([
-            'name' => 'laptop5',
-            'slug' => 'laptop-5',
-            'details' => '15 inches 1TB SSD 16 GB RAM',
-            'price' => 1000,
-            'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, nisi. Exercitationem, explicabo obcaecati dicta libero inventore soluta ducimus, necessitatibus quaerat magnam sapiente mollitia eum beatae quidem et perferendis quis similique.',
-        ]);
-        Product::create([
-            'name' => 'laptop6',
-            'slug' => 'laptop-6',
-            'details' => '15 inches 1TB SSD 16 GB RAM',
-            'price' => 1000,
-            'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, nisi. Exercitationem, explicabo obcaecati dicta libero inventore soluta ducimus, necessitatibus quaerat magnam sapiente mollitia eum beatae quidem et perferendis quis similique.',
-        ]);
-        Product::create([
-            'name' => 'laptop7',
-            'slug' => 'laptop-7',
-            'details' => '15 inches 1TB SSD 16 GB RAM',
-            'price' => 1000,
-            'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, nisi. Exercitationem, explicabo obcaecati dicta libero inventore soluta ducimus, necessitatibus quaerat magnam sapiente mollitia eum beatae quidem et perferendis quis similique.',
-        ]);
-        Product::create([
-            'name' => 'laptop8',
-            'slug' => 'laptop-8',
-            'details' => '15 inches 1TB SSD 16 GB RAM',
-            'price' => 1000,
-            'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, nisi. Exercitationem, explicabo obcaecati dicta libero inventore soluta ducimus, necessitatibus quaerat magnam sapiente mollitia eum beatae quidem et perferendis quis similique.',
-        ]);
+        for ($i=0; $i < 30; $i++) { 
+            Product::create([
+                'name' => 'laptop' . $i,
+                'slug' => 'laptop-' . $i,
+                'details' => '15 inches 1TB SSD 16 GB RAM',
+                'price' => rand(1000, 9999),
+                'category_id' => 1,
+                'image' => 'image0.jpg',
+                'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, nisi. Exercitationem, explicabo obcaecati dicta libero inventore soluta ducimus, necessitatibus quaerat magnam sapiente mollitia eum beatae quidem et perferendis quis similique.',
+            ]);
+        }
+        for ($i=0; $i < 30; $i++) {
+            Product::create([
+                'name' => 'Desktop' . $i,
+                'slug' => 'desktop-' . $i,
+                'details' => '15 inches 1TB SSD 16 GB RAM',
+                'price' => rand(1000, 9999),
+                'category_id' => 2,
+                'image' => 'image1.jpg',
+                'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, nisi. Exercitationem, explicabo obcaecati dicta libero inventore soluta ducimus, necessitatibus quaerat magnam sapiente mollitia eum beatae quidem et perferendis quis similique.',
+            ]);
+        }
+        for ($i=0; $i < 30; $i++) {
+            Product::create([
+                'name' => 'Phone' . $i,
+                'slug' => 'phone-' . $i,
+                'details' => '15 inches 1TB SSD 16 GB RAM',
+                'price' => rand(1000, 9999),
+                'category_id' => 3,
+                'image' => 'image2.jpg',
+                'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, nisi. Exercitationem, explicabo obcaecati dicta libero inventore soluta ducimus, necessitatibus quaerat magnam sapiente mollitia eum beatae quidem et perferendis quis similique.',
+            ]);
+        }
+        for ($i=0; $i < 30; $i++) {
+            Product::create([
+                'name' => 'Tablet' . $i,
+                'slug' => 'tablet-' . $i,
+                'details' => '15 inches 1TB SSD 16 GB RAM',
+                'price' => rand(1000, 9999),
+                'category_id' => 4,
+                'image' => 'image3.jpg',
+                'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, nisi. Exercitationem, explicabo obcaecati dicta libero inventore soluta ducimus, necessitatibus quaerat magnam sapiente mollitia eum beatae quidem et perferendis quis similique.',
+            ]);
+        }
+        for ($i=0; $i < 30; $i++) {
+            Product::create([
+                'name' => 'TV' . $i,
+                'slug' => 'tv-' . $i,
+                'details' => '15 inches 1TB SSD 16 GB RAM',
+                'price' => rand(1000, 9999),
+                'category_id' => 5,
+                'image' => 'image4.jpg',
+                'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, nisi. Exercitationem, explicabo obcaecati dicta libero inventore soluta ducimus, necessitatibus quaerat magnam sapiente mollitia eum beatae quidem et perferendis quis similique.',
+            ]);
+        }
+        for ($i=0; $i < 30; $i++) {
+            Product::create([
+                'name' => 'Camera' . $i,
+                'slug' => 'camera-' . $i,
+                'details' => '15 inches 1TB SSD 16 GB RAM',
+                'price' => rand(1000, 9999),
+                'category_id' => 6,
+                'image' => 'image5.jpg',
+                'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, nisi. Exercitationem, explicabo obcaecati dicta libero inventore soluta ducimus, necessitatibus quaerat magnam sapiente mollitia eum beatae quidem et perferendis quis similique.',
+            ]);
+        }
     }
 }

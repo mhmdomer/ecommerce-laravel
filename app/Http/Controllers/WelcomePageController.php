@@ -10,7 +10,7 @@ class WelcomePageController extends Controller
 
     
     public function index() {
-        $products = Product::inRandomOrder()->take(8)->get();
+        $products = Product::inRandomOrder()->take(6)->get();
         return view('welcome')->with('products', $products);
     }
 }

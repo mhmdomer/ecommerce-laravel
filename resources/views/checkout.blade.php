@@ -69,7 +69,7 @@
                         <tr>
                             <td>
                                 <a href="{{ route('shop.show', $item->model->slug) }}">
-                                    <img src="{{ Asset('images/back.jpg') }}" height="100px" width="100px"></td>
+                                    <img src="{{ Asset('images/products/' . $item->model->image) }}" height="100px" width="100px"></td>
                                 </a>
                             <td>
                             <td>

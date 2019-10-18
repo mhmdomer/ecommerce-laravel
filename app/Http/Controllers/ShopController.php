@@ -4,14 +4,34 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Product;
+use App\Category;
 
 class ShopController extends Controller
 {
     
 
     public function index() {
-        $products = Product::inRandomOrder()->take(10)->get();
-        return view('shop')->with('products', $products);
+        if(request()->category) {
+            $category = Category::where('slug', request()->category)->get()->first();
+            $products = Product::where('category_id', $category->id);
+            $categoryName = $category->name;
+        } else {
+            $products = Product::where('featured', true);
+            $categoryName = 'Featured';
+        }
+        if(request()->sort == 'low_high') {
+            $products = $products->orderBy('price')->paginate(9);
+        } else if(request()->sort == 'high_low') {
+            $products = $products->orderBy('price', 'desc')->paginate(9);
+        } else {
+            $products = $products->inRandomOrder()->paginate(9);
+        }
+        $categories = Category::all();
+        return view('shop')->with([
+            'products' => $products,
+            'categories'=> $categories,
+            'categoryName' => $categoryName
+            ]);
     }
 
     public function show($slug) {
