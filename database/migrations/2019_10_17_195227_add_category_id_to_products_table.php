@@ -17,7 +17,7 @@ class AddCategoryIdToProductsTable extends Migration
             $table->string('image')->after('price');
             $table->boolean('featured')->default(false)->after('image');
             $table->unsignedBigInteger('category_id')->after('featured');
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade');
         });
     }
 
