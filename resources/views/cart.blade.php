@@ -41,7 +41,7 @@
                                     @endfor
                                 </select>
                             </td>
-                            <td>${{ $item->subtotal }}</td>
+                            <td>${{ format($item->subtotal) }}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -55,9 +55,9 @@
                         </p>
                     </div>
                     <div class="col-md-3 offset-md-1">
-                        <p class="text-right light-text">Subtotal &nbsp; &nbsp;${{ Cart::subtotal() }}</p>
-                        <p class="text-right light-text">Tax(21%) &nbsp; &nbsp; ${{ Cart::tax() }}</p>
-                        <p class="text-right">Total &nbsp; &nbsp; ${{ Cart::total() }}</p>
+                        <p class="text-right light-text">Subtotal &nbsp; &nbsp;${{ format(Cart::subtotal()) }}</p>
+                        <p class="text-right light-text">Tax(21%) &nbsp; &nbsp; ${{ format(Cart::tax()) }}</p>
+                        <p class="text-right">Total &nbsp; &nbsp; ${{ format(Cart::total()) }}</p>
                     </div>
                 </div>
             </div>
@@ -81,7 +81,7 @@
                             <tr>
                                 <td>
                                     <a href="{{ route('shop.show', $item->model->slug) }}">
-                                        <img src="{{ Asset('images/products/' . $item->model->image) }}" height="100px" width="100px"></td>
+                                        <img src="{{ productImage($item->model->image) }}" height="100px" width="100px"></td>
                                     </a>
                                 <td>
                                     <a href="{{ route('shop.show', $item->model->slug) }}" class="text-decoration-none">
@@ -100,24 +100,7 @@
                                         <button type="submit" class="cart-option text-decoration-none">Add to cart</button>
                                     </form>
                                 </td>
-                                <td>
-                                    <div class="center">
-                                        <div class="input-group">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="btn btn-danger btn-number"  data-type="minus" data-field="quant[2]">
-                                                <span class="glyphicon glyphicon-minus"></span>
-                                                </button>
-                                            </span>
-                                            <input width="1em" type="text" name="quant[2]" class="form-control input-number" value="10" min="1" max="100">
-                                            <span class="input-group-btn">
-                                                <button type="button" class="btn btn-success btn-number" data-type="plus" data-field="quant[2]">
-                                                    <span class="glyphicon glyphicon-plus"></span>
-                                                </button>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td>${{ $item->model->price }}</td>
+                                <td>${{ format($item->model->price) }}</td>
                             </tr>
                         @endforeach
                     </tbody>

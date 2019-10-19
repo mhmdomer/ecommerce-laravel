@@ -10,7 +10,7 @@
         <div class="product-details col-md-5">
             <h2 class="lead">{{ $product->name }}</h2>
             <p class="light-text">{{ $product->details }}</p>
-            <h3 class="lead">${{ $product->price }}</h3>
+            <h3 class="lead">$ {{ format($product->price) }}</h3>
             <p class="light-text">{!! $product->description !!}</p>
             <form action="{{ route('cart.store') }}" method="POST">
                 @csrf()
