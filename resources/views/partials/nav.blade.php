@@ -7,27 +7,7 @@
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('shop.index') }}">Shop</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Blog</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('cart.index') }}">
-                        Cart 
-                        @if (Cart::instance('default')->count() > 0)
-                            <span class="badge badge-primary">
-                                {{ Cart::instance('default')->count() }}
-                            </span>
-                        @endif
-                    </a>
-                </li>
-            </ul>
+            {{ menu('main', 'partials.menu.main') }}
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control custom-border mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn custom-border my-2 my-sm-0" type="submit">Search</button>

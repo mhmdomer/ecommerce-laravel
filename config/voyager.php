@@ -1,14 +1,6 @@
 <?php
 
 return [
-    /*
-    |--------------------------------------------------------------------------
-    | User config
-    |--------------------------------------------------------------------------
-    |
-    | Here you can specify voyager user configs
-    |
-    */
 
     'user' => [
         'add_default_role_on_register' => true,
