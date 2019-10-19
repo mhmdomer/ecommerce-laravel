@@ -11,20 +11,21 @@ class ShopController extends Controller
     
 
     public function index() {
+        $pagination = 12;
         if(request()->category) {
             $category = Category::where('slug', request()->category)->get()->first();
             $products = Product::where('category_id', $category->id);
             $categoryName = $category->name;
         } else {
-            $products = Product::inRandomOrder()->where('featured', true);
+            $products = Product::where('featured', true);
             $categoryName = 'Featured';
         }
         if(request()->sort == 'low_high') {
-            $products = $products->orderBy('price')->paginate(9);
+            $products = $products->orderBy('price')->paginate($pagination);
         } else if(request()->sort == 'high_low') {
-            $products = $products->orderBy('price', 'desc')->paginate(9);
+            $products = $products->orderBy('price', 'desc')->paginate($pagination);
         } else {
-            $products = $products->orderBy('id')->paginate(9);
+            $products = $products->inRandomOrder()->paginate($pagination);
         }
         $categories = Category::all();
         return view('shop')->with([

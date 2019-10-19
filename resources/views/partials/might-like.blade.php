@@ -8,7 +8,7 @@
                 <div class="col-md-6 col-sm-12 col-lg-4 product">
                     <a href="{{ route('shop.show', $product->slug) }}" class="custom-card">
                         <div class="card view overlay zoom">
-                            <img src="{{ Asset('images/products/' . $product->image) }}" class="card-img-top img-fluid" alt="...">
+                            <img src="{{ productImage($product->image) }}" class="card-img-top img-fluid" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title">{{ $product->name }}<span class="float-right">${{ $product->price }}</span></h5>
                                 <div class="product-actions" style="display: flex; align-items: center; justify-content: center">
