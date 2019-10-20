@@ -24,15 +24,21 @@
                                 </a>
                             </td>
                             <td>
-                                <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
+                                <form action="{{ route('cart.destroy', [$item->rowId, 'default']) }}" method="POST" id="delete-item">
                                     @csrf()
                                     @method('DELETE')
-                                    <button type="submit" class="cart-option">remove</button><br>
                                 </form>
-                                <form action="{{ route('cart.save-later', $item->rowId) }}" method="POST">
+                                <form action="{{ route('cart.save-later', $item->rowId) }}" method="POST" id="save-later">
                                     @csrf()
-                                    <button type="submit" class="cart-option text-decoration-none">save for later</button>
                                 </form>
+                                <button class="cart-option btn btn-danger btn-sm custom-border" onclick="
+                                    document.getElementById('delete-item').submit();">
+                                    remove
+                                </button>
+                                <button class="cart-option btn btn-success btn-sm custom-border" onclick="
+                                document.getElementById('save-later').submit();">
+                                    Save for later
+                                </button>
                             </td>
                             <td class="">
                                 <select class='quantity' data-id='{{ $item->rowId }}'>
@@ -90,20 +96,27 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
-                                        @csrf()
-                                        @method('DELETE')
-                                        <button type="submit" class="cart-option">remove</button><br>
-                                    </form>
-                                    <form action="{{ route('cart.add-to-cart', $item->rowId) }}" method="POST">
-                                        @csrf()
-                                        <button type="submit" class="cart-option text-decoration-none">Add to cart</button>
-                                    </form>
+                                    <button class="cart-option btn btn-danger btn-sm custom-border" onclick="
+                                        document.getElementById('delete-form').submit();">
+                                        remove
+                                    </button>
+                                    <button class="cart-option btn btn-success btn-sm custom-border" onclick="
+                                    document.getElementById('add-form').submit();">
+                                        Add to cart
+                                    </button>
                                 </td>
                                 <td>${{ format($item->model->price) }}</td>
                             </tr>
                         @endforeach
                     </tbody>
+                    <form action="{{ route('cart.destroy', [$item->rowId, 'saveForLater']) }}" method="POST" id="delete-form">
+                        @csrf()
+                        @method('DELETE')
+                    </form>
+                    <form action="{{ route('cart.add-to-cart', $item->rowId) }}" method="POST" id="add-form">
+                        @csrf()
+                    </form>
+
                 </table>
             @else
                 <div class="alert alert-primary">

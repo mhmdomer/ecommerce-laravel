@@ -13802,6 +13802,10 @@ a.custom-card:hover {
   color: #444;
 }
 
+.cart-option {
+  margin: 0;
+}
+
 .coupon {
   border: 1px solid #222;
   padding: 1em;
