@@ -13,7 +13,11 @@
             <form action="">
                 <div class="form-group">
                     <label for="email" class="light-text">Email Address</label>
-                    <input type="text" name="email" class="form-control my-input">
+                    @guest
+                        <input type="text" name="email" class="form-control my-input">
+                    @else
+                        <input type="text" name="email" class="form-control my-input" value="{{ auth()->user()->email }}" readonly>
+                    @endguest
                 </div>
                 <div class="form-group">
                     <label for="name" class="light-text">Name</label>

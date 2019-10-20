@@ -15,25 +15,17 @@ Route::post('/cart/save-later/{product}', 'CartController@saveLater')->name('car
 Route::post('/cart/add-to-cart/{product}', 'CartController@addToCart')->name('cart.add-to-cart');
 Route::patch('/cart/{product}', 'CartController@update')->name('cart.update');
 
-
 // checkout
-Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
-
+Route::get('/checkout', 'CheckoutController@index')->name('checkout.index')->middleware('auth');
+Route::get('/guest-checkout', 'CheckoutController@index')->name('checkout.guest');
 
 // coupon
 Route::post('/coupon', 'CouponsController@store')->name('coupon.store');
 Route::delete('/coupon/', 'CouponsController@destroy')->name('coupon.destroy');
 
-Route::get('empty', function () {
-    Cart::destroy();
-    Cart::instance('saveForLater')->destroy();
-    return redirect()->route('cart.index');
-});
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

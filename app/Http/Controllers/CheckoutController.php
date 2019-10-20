@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Request\CheckoutRequest;
 use Cart;
 
 class CheckoutController extends Controller
@@ -25,5 +26,9 @@ class CheckoutController extends Controller
             ]);
         }
         return redirect()->route('cart.index')->withError('You have nothing in your cart , please add some products first');
+    }
+
+    public function store(CheckoutRequest $request) {
+
     }
 }

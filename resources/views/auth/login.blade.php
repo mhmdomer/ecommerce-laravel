@@ -56,6 +56,11 @@
                                 <button type="submit" class="btn btn-success custom-border">
                                     {{ __('Login') }}
                                 </button>
+                                @if (str_replace(url('/'), '', url()->previous()) == '/cart')
+                                    <a href="{{ route('checkout.guest'  ) }}" class="btn btn-primary custom-border">
+                                        Guest checkout
+                                    </button>
+                                @endif
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
