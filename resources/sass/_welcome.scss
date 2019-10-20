@@ -1,0 +1,25 @@
+.hero-image {
+    background-image: url("cover.jpg");
+    display: flex;
+    flex-direction: column;
+    min-height: 28em;
+    height: 50%;
+    align-self: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: scroll;
+    /* justify-content: center; */
+    margin-bottom: 2em;
+}
+
+.hero-content {
+    margin-left: 2em;
+    margin-top:4em;
+    color: white;
+}
+
+.show-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

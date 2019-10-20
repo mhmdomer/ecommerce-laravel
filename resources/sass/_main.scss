@@ -1,0 +1,110 @@
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: #eee;
+}
+
+nav {
+    opacity: 0.97;
+}
+
+.custom-border {
+    border: 1px solid gainsboro;
+    color: white;
+    border-radius: 0;
+}
+
+.custom-border-n {
+    border: 1px solid black;
+    color: #222;
+    border-radius: 0;
+    margin-top:1em;
+}
+
+.custom-border-success {
+    border-radius: 0;
+}
+
+.custom-border-n:hover {
+    background-color: #222;
+    color: white;
+}
+
+.product {
+    margin-bottom: 1em;
+}
+
+button {
+    margin-right: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.header {
+    font-size: 1.7em;
+    margin-bottom: 2em;
+}
+
+footer {
+    color: white;;
+    padding: 4em;
+}
+
+.footer {
+    padding: 2em;
+}
+
+.card {
+    padding: 0em;
+    margin: 0em;
+}
+
+.footer-link {
+    color: white;
+}
+
+.content-head {
+    margin-bottom: 2em;
+}
+
+.card-body {
+    align-content: center;
+    justify-content: center;
+}
+
+a.custom-card,
+a.custom-card:hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+.light-text {
+    color: #444;
+}
+
+.suggestions {
+    background-color: #ddd;
+}
+
+// from here
+
+.my-input {
+    border-radius: 0;
+}
+
+.center {
+    justify-content: center;
+    align-content: center;
+}
+
+.cart-option {
+    border: none;
+}
+
+
+// .form-inline {
+//     display: flex;
+//     flex-flow: row wrap;
+//     align-items: center;
+// }
+

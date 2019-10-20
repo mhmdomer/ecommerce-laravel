@@ -37,7 +37,12 @@ class ShopController extends Controller
 
     public function show($slug) {
         $product = Product::where('slug', $slug)->firstOrFail();
+        $images = json_decode($product->images);
         $mightLike = Product::where('slug', '!=', $product->slug)->mightAlsoLike()->get();
-        return view('product')->with('product', $product)->with('mightLike', $mightLike);
+        return view('product')->with([
+            'product' => $product,
+            'mightLike' => $mightLike,
+            'images' => $images
+        ]);
     }
 }
