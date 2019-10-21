@@ -6,7 +6,7 @@
 .image-thumbnails {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 13px;
+    grid-gap: 8px;
     margin-top: 13px;
 
     .active {
@@ -22,5 +22,6 @@
 
     &:hover {
         border: 2px solid #000;
+        cursor: pointer;
     }
 }

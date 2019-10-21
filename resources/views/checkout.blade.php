@@ -84,7 +84,7 @@
                                 </a>
                             </td>
                             <td>
-                                <span class="badge badge-info">{{ $item->qty }}</span>
+                                <span class="quantity-square">{{ $item->qty }}</span>
                             </td>
                         </tr>
                     @endforeach

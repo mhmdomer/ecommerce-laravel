@@ -13811,6 +13811,11 @@ a.custom-card:hover {
   padding: 1em;
 }
 
+.quantity-square {
+  border: 1px solid #222;
+  padding: 0.5em;
+}
+
 .filter-ul {
   padding: 0;
   background-color: #ddd;
@@ -13895,7 +13900,7 @@ li a:hover {
 .image-thumbnails {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 13px;
+  grid-gap: 8px;
   margin-top: 13px;
 }
 
@@ -13912,5 +13917,6 @@ li a:hover {
 
 .image-thumbnail:hover {
   border: 2px solid #000;
+  cursor: pointer;
 }
 

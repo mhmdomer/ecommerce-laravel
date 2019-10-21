@@ -12,7 +12,6 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-    
         Category::create([
             'name' => 'Laptops',
             'slug' => 'laptops'
