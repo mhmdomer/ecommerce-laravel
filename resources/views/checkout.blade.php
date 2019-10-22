@@ -10,55 +10,56 @@
             <h1 class="lead" style="font-size: 1.5em">Checkout</h1>
             <hr>
             <h3 class="lead" style="font-size: 1.2em; margin-bottom: 1.6em;">Billing details</h3>
-            <form action="">
+            <form action="{{ route('checkout.store') }}" method="POST">
+                @csrf()
                 <div class="form-group">
                     <label for="email" class="light-text">Email Address</label>
                     @guest
-                        <input type="text" name="email" class="form-control my-input">
+                        <input type="text" name="email" class="form-control my-input" required>
                     @else
-                        <input type="text" name="email" class="form-control my-input" value="{{ auth()->user()->email }}" readonly>
+                        <input type="text" name="email" class="form-control my-input" value="{{ auth()->user()->email }}" readonly required>
                     @endguest
                 </div>
                 <div class="form-group">
                     <label for="name" class="light-text">Name</label>
-                    <input type="text" name="name" class="form-control my-input">
+                    <input type="text" name="name" class="form-control my-input" required>
                 </div>
                 <div class="form-group">
                     <label for="address" class="light-text">Address</label>
-                    <input type="text" name="address" class="form-control my-input">
+                    <input type="text" name="address" class="form-control my-input" required>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="city" class="light-text">City</label>
-                            <input type="text" name="city" class="form-control my-input">
+                            <input type="text" name="city" class="form-control my-input" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="province" class="light-text">Province</label>
-                        <input type="text" name="province" class="form-control my-input">
+                        <input type="text" name="province" class="form-control my-input" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="postal_code" class="light-text">Postal Code</label>
-                            <input type="text" name="postal_code" class="form-control my-input">
+                            <input type="text" name="postal_code" class="form-control my-input" required>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <label for="phone" class="light-text">Phone</label>
-                        <input type="text" name="phone" class="form-control my-input">
+                        <input type="text" name="phone" class="form-control my-input" required>
                     </div>
                 </div>
                 <h2 style="margin-top:1em; margin-bottom:1em;">Payment details</h2>
                 <div class="form-group">
-                    <label for="name_card" class="light-text">Name on card</label>
-                    <input type="text" name="name_card" class="form-control my-input">
+                    <label for="name_on_card" class="light-text">Name on card</label>
+                    <input type="text" name="name_on_card" class="form-control my-input" required>
                 </div>
                 <div class="form-group">
                     <label for="credit_card" class="light-text">Credit Card</label>
-                    <input type="text" name="credit_card" class="form-control my-input">
+                    <input type="text" name="credit_card" class="form-control my-input" required>
                 </div>
                 <button type="submit" class="btn btn-success custom-border-success btn-block">Complete Order</button>
             </form>
@@ -145,7 +146,7 @@
                 <form action="{{ route('coupon.store') }}" method="POST">
                     @csrf()
                     <label for="coupon_code">Have a coupon ?</label>
-                    <input type="text" name="coupon_code" id="coupon" class="form-control my-input" placeholder="123456">
+                    <input type="text" name="coupon_code" id="coupon" class="form-control my-input" placeholder="123456" required>
                     <button type="submit" class="btn btn-success custom-border-success btn-block">Apply Coupon</button>
                 </form>
             @endif

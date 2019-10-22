@@ -16,7 +16,8 @@ Route::post('/cart/add-to-cart/{product}', 'CartController@addToCart')->name('ca
 Route::patch('/cart/{product}', 'CartController@update')->name('cart.update');
 
 // checkout
-Route::get('/checkout', 'CheckoutController@index')->name('checkout.index')->middleware('auth');
+Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
+Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
 Route::get('/guest-checkout', 'CheckoutController@index')->name('checkout.guest');
 
 // coupon
