@@ -7,3 +7,7 @@ function productImage($path) {
 function format($price) {
     return number_format($price, 2);
 }
+
+function str_limit($string, $limit) {
+    return strlen($string) > $limit ? substr($string, 0, $limit) . ' ...' : $string;
+}

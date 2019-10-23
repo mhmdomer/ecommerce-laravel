@@ -118,11 +118,6 @@
                                                 $data->{$row->field} = $data->{$row->field.'_browse'};
                                             }
                                             @endphp
-                                            {{-- @if ($row->display_name == 'Shipped' && $row->)
-                                                
-                                            @else
-                                                
-                                            @endif --}}
                                             <td>
                                                 @if (isset($row->details->view))
                                                     @include($row->details->view, ['row' => $row, 'dataType' => $dataType, 'dataTypeContent' => $dataTypeContent, 'content' => $data->{$row->field}, 'action' => 'browse'])
@@ -251,7 +246,7 @@
                                                     @endif
                                                 @else
                                                     @include('voyager::multilingual.input-hidden-bread-browse')
-                                                    <span>{{ $data->{$row->field} }}</span>
+                                                    <span>${{ format($data->{$row->field}) }}</span>
                                                 @endif
                                             </td>
                                         @endforeach

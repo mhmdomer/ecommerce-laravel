@@ -8,10 +8,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             {{ menu('main', 'partials.menu.main') }}
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control custom-border mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn custom-border my-2 my-sm-0" type="submit">Search</button>
-            </form>
+            <input name="search" style="width:30%" id="search" class="form-control custom-border mr-sm-2" placeholder="Search" aria-label="Search">
             </div>
 
             <!-- Right Side Of Navbar -->
@@ -49,3 +46,15 @@
         </div>
     </div>
 </nav>
+<script>
+    var search = $('#search')
+    search.on('keypress',function(e) {
+        if(e.which == 13) {
+            if(search.val().length > 2){
+                location.href = 'http://localhost:8000/shop/search/' + search.val();
+            } else {
+                alert('Minimun query length is 3');
+            }
+        }
+    });
+</script>

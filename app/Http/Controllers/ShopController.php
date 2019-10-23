@@ -45,4 +45,14 @@ class ShopController extends Controller
             'images' => $images
         ]);
     }
+
+    public function search($query) {
+        if(strlen($query) < 3) return back()->with('error', 'minimum query length is 3');
+        // $products = Product::where('name', 'like', '%' . $query . '%')
+        //                         ->orWhere('details', 'like', '%' . $query . '%')
+        //                         ->orWhere('description', 'like', '%' . $query . '%')
+        //                         ->paginate(10);
+        $products = Product::search($query)->paginate(10);
+        return view('search')->with(['products' => $products, 'query' => $query]);
+    }
 }

@@ -54,12 +54,12 @@
                                 @include($row->details->view, ['row' => $row, 'dataType' => $dataType, 'dataTypeContent' => $dataTypeContent, 'content' => $dataTypeContent->{$row->field}, 'action' => 'read'])
                             @elseif($row->type == "image")
                                 <img class="img-responsive"
-                                     src="{{ filter_var($dataTypeContent->{$row->field}, FILTER_VALIDATE_URL) ? $dataTypeContent->{$row->field} : Voyager::image($dataTypeContent->{$row->field}) }}">
+                                    src="{{ filter_var($dataTypeContent->{$row->field}, FILTER_VALIDATE_URL) ? $dataTypeContent->{$row->field} : Voyager::image($dataTypeContent->{$row->field}) }}">
                             @elseif($row->type == 'multiple_images')
                                 @if(json_decode($dataTypeContent->{$row->field}))
                                     @foreach(json_decode($dataTypeContent->{$row->field}) as $file)
                                         <img class="img-responsive"
-                                             src="{{ filter_var($file, FILTER_VALIDATE_URL) ? $file : Voyager::image($file) }}">
+                                            src="{{ filter_var($file, FILTER_VALIDATE_URL) ? $file : Voyager::image($file) }}">
                                     @endforeach
                                 @else
                                     <img class="img-responsive"
@@ -152,7 +152,11 @@
                                 @endif
                             @else
                                 @include('voyager::multilingual.input-hidden-bread-read')
-                                <p>{{ $dataTypeContent->{$row->field} }}</p>
+                                @if ($row->display_name == 'Total' || $row->display_name == 'Tax' || $row->display_name == 'Subtotal' || $row->display_name == 'Discount')
+                                    <p>${{ format($dataTypeContent->{$row->field}) }}</p>
+                                @else
+                                    <p>{{ $dataTypeContent->{$row->field} }}</p>
+                                @endif
                             @endif
                         </div><!-- panel-body -->
                         @if(!$loop->last)
@@ -178,7 +182,7 @@
                         {{ method_field('DELETE') }}
                         {{ csrf_field() }}
                         <input type="submit" class="btn btn-danger pull-right delete-confirm"
-                               value="{{ __('voyager::generic.delete_confirm') }} {{ strtolower($dataType->getTranslatedAttribute('display_name_singular')) }}">
+                            value="{{ __('voyager::generic.delete_confirm') }} {{ strtolower($dataType->getTranslatedAttribute('display_name_singular')) }}">
                     </form>
                     <button type="button" class="btn btn-default pull-right" data-dismiss="modal">{{ __('voyager::generic.cancel') }}</button>
                 </div>
