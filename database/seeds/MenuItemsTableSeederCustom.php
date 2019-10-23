@@ -147,6 +147,22 @@ class MenuItemsTableSeederCustom extends Seeder
             ])->save();
         }
 
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => 'Orders',
+            'url'     => '',
+            'route'   => 'voyager.orders.index',
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-documentation',
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 19,
+            ])->save();
+        }
+
     }
 
 }

@@ -34,5 +34,8 @@ class PermissionsTableSeederCustom extends Seeder
         Permission::generateFor('tags');
 
         Permission::generateFor('product_tag');
+        
+        Permission::generateFor('orders');
+        
     }
 }
