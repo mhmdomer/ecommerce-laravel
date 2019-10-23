@@ -8,6 +8,8 @@ use Cart;
 use App\Order;
 use App\OrderProduct;
 use Cartalyst\Stripe\Stripe;
+use Mail;
+use App\Mail\OrderPlaced;
 
 class CheckoutController extends Controller
 {
@@ -51,7 +53,8 @@ class CheckoutController extends Controller
             //     ],
             // ]);
             
-            $this->insertIntoOrdersTable($request, null);
+            $order = $this->insertIntoOrdersTable($request, null);
+            Mail::to('me@me.com')->send(new OrderPlaced($order));
             
             // SUCCESSFUL
             Cart::instance('default')->destroy();
@@ -107,5 +110,6 @@ class CheckoutController extends Controller
                 'quantity' => $item->qty
             ]);
         }
+        return $order;
     }
 }
