@@ -160,12 +160,12 @@ class DataRowsTableSeederCustom extends Seeder
         if (!$dataRow->exists) {
             $dataRow->fill([
                 'type'         => 'rich_text_box',
-                'display_name' => 'Discount',
+                'display_name' => 'Description',
                 'required'     => 1,
-                'browse'       => 0,
+                'browse'       => 1,
                 'read'         => 1,
-                'edit'         => 0,
-                'add'          => 0,
+                'edit'         => 1,
+                'add'          => 1,
                 'delete'       => 0,
                 'order'        => 10,
             ])->save();

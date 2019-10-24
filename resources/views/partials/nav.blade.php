@@ -8,7 +8,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             {{ menu('main', 'partials.menu.main') }}
-            <input name="search" style="width:30%" id="search" class="form-control custom-border mr-sm-2" placeholder="Search" aria-label="Search">
+            <div>
+                <input id="searchbox" name="search" id="search" style="width:400px; margin:0;" id="search" class="form-control custom-border" placeholder="Search" aria-label="Search">
+            </div>
             </div>
 
             <!-- Right Side Of Navbar -->
@@ -46,12 +48,17 @@
         </div>
     </div>
 </nav>
+<div id="cont">
+    <ul style="height:4em">
+
+    </ul>
+</div>
 <script>
-    var search = $('#search')
-    search.on('keypress',function(e) {
+    var searcher = $('#search')
+    searcher.on('keypress',function(e) {
         if(e.which == 13) {
             if(search.val().length > 2){
-                location.href = 'http://localhost:8000/shop/search/' + search.val();
+                location.href = 'http://localhost:8000/shop/search/' + searcher.val();
             } else {
                 alert('Minimun query length is 3');
             }
