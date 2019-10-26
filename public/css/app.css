@@ -13788,6 +13788,43 @@ a.custom-card:hover {
   border: none;
 }
 
+.ais-SearchBox-submit,
+.ais-SearchBox-reset {
+  margin: 0;
+}
+
+.ais-Pagination {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.ais-Stats-text {
+  margin-bottom: 1em;
+}
+
+.result-head {
+  font-size: 0.9em;
+}
+
+.result-details {
+  font-size: 0.6em;
+  color: #444;
+}
+
+.result-price {
+  font-size: 0.6em;
+  color: #444;
+}
+
+.image-center {
+  display: block;
+  margin: 0 auto;
+}
+
+.ais-Hits-item {
+  width: 100%;
+}
+
 .summary {
   padding: 1em;
   background-color: #ddd;

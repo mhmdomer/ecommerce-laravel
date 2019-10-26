@@ -29,63 +29,31 @@
 <style>
     .algolia-autocomplete {
         width: 100%;
-      }
-      .algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
+    }
+    .algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
         width: 100%;
-      }
-      .algolia-autocomplete .aa-hint {
+    }
+    .algolia-autocomplete .aa-hint {
         color: #999;
-      }
-      .algolia-autocomplete .aa-dropdown-menu {
+    }
+    .algolia-autocomplete .aa-dropdown-menu {
         width: 100%;
         background-color: #fff;
         border: 1px solid #999;
         border-top: none;
-      }
-      .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
+    }
+    .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
         cursor: pointer;
         padding: 5px 4px;
-      }
-      .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
+    }
+    .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
         background-color: #B2D7FF;
-      }
-      .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
+    }
+    .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
         font-weight: bold;
         font-style: normal;
-      }
+    }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/algoliasearch@3.35.0/dist/algoliasearchLite.min.js"></script>
 <script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-<script>
-
-const searchClient = algoliasearch('XQCQWWLR66', '262eaf1360292f847a096bee74a8ab85');
-var index = searchClient.initIndex('products')
-autocomplete('#searchbox',
-    { hint : false }, {
-        source : autocomplete.sources.hits(index, {hitsPerPage: 10}),
-        displayKey : 'name',
-        templates : {
-            suggestion: function(suggestion) {
-                const markup = `
-                    <div class='algolia-result' style='display:flex'>
-                        <img src='${window.location.origin}/storage/${suggestion.image}' width='40px' height='40px'>
-                        <span style='margin-left:3em'>${suggestion._highlightResult.name.value}</span>
-                        <span>$${suggestion.price}</span>
-                    </div>
-                    <div>
-                        <span>${suggestion._highlightResult.details.value}</span>
-                    </div>
-                    <hr style='margin-bottom:0'>
-                `;
-                return markup;
-            },
-            empty: function(result) {
-                return 'sorry we did not find any result for ' + result.query;
-            }
-        }
-    }
-).on('autocomplete:selected', function(event, suggestion, dataset) {
-    window.location.href = window.location.origin + '/shop/' + suggestion.slug;
-})
-
-</script>
+<script src="{{ asset('js/algolia-autocomplete.js') }}"></script>

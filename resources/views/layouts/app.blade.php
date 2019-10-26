@@ -4,7 +4,7 @@
 <body>
     <div id='app'>
         @include('partials.nav')
-        <div class="py-4" style="margin-top: {{ Request::is('/') ? '2em' : '5em' }}">
+        <div class="" style="margin-top: {{ Request::is('/') ? '-1.3em' : '2em' }}">
             @include('partials.session')
             @include('partials.errors')
             @yield('content')
