@@ -12,7 +12,7 @@ class TagsTableSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0; $i < 20; $i++) { 
+        for ($i=0; $i < 4; $i++) { 
             Tag::create([
                 'name' => 'Tag ' . $i,
                 'slug' => 'tag-' . $i

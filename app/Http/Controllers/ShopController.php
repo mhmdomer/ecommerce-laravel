@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Category;
+use App\Tag;
 
 class ShopController extends Controller
 {
@@ -16,6 +17,10 @@ class ShopController extends Controller
             $category = Category::where('slug', request()->category)->get()->first();
             $products = Product::where('category_id', $category->id);
             $categoryName = $category->name;
+        } else if(request()->tag) {
+            $tag = Tag::where('slug', request()->tag)->get()->first();
+            $products = $tag->products();
+            $tagName = $tag->name;
         } else {
             $products = Product::where('featured', true);
             $categoryName = 'Featured';
@@ -28,10 +33,13 @@ class ShopController extends Controller
             $products = $products->inRandomOrder()->paginate($pagination);
         }
         $categories = Category::all();
+        $tags = Tag::all();
         return view('shop')->with([
             'products' => $products,
             'categories'=> $categories,
-            'categoryName' => $categoryName
+            'tags'=> $tags,
+            'categoryName' => $categoryName ?? null,
+            'tagName' => $tagName ?? null
             ]);
     }
 

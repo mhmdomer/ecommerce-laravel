@@ -15,7 +15,7 @@ class ProductTagSeeder extends Seeder
         for ($i=0; $i < 120; $i++) { 
             ProductTag::create([
                 'product_id' => rand(1, 120),
-                'tag_id' => rand(1, 20)
+                'tag_id' => rand(1, 4)
             ]);
         }
     }
