@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'Search')
 @section('stylesheet')
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/reset-min.css">
