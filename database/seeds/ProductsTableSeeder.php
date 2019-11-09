@@ -22,6 +22,7 @@ class ProductsTableSeeder extends Seeder
                 'image' => 'products/dummy/image0.jpg',
                 'images' => '["products/dummy/image0.jpg", "products/dummy/image0.jpg", "products/dummy/image0.jpg"]',
                 'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, nisi. Exercitationem, explicabo obcaecati dicta libero inventore soluta ducimus, necessitatibus quaerat magnam sapiente mollitia eum beatae quidem et perferendis quis similique.',
+                'quantity' => 10
             ]);
         }
         for ($i=0; $i < 20; $i++) {
@@ -34,6 +35,7 @@ class ProductsTableSeeder extends Seeder
                 'image' => 'products/dummy/image1.jpg',
                 'images' => '["products/dummy/image1.jpg", "products/dummy/image1.jpg", "products/dummy/image1.jpg"]',
                 'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, nisi. Exercitationem, explicabo obcaecati dicta libero inventore soluta ducimus, necessitatibus quaerat magnam sapiente mollitia eum beatae quidem et perferendis quis similique.',
+                'quantity' => 10
             ]);
         }
         for ($i=0; $i < 20; $i++) {
@@ -46,6 +48,7 @@ class ProductsTableSeeder extends Seeder
                 'image' => 'products/dummy/image2.jpg',
                 'images' => '["products/dummy/image2.jpg", "products/dummy/image2.jpg", "products/dummy/image2.jpg"]',
                 'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, nisi. Exercitationem, explicabo obcaecati dicta libero inventore soluta ducimus, necessitatibus quaerat magnam sapiente mollitia eum beatae quidem et perferendis quis similique.',
+                'quantity' => 10
             ]);
         }
         for ($i=0; $i < 20; $i++) {
@@ -58,6 +61,7 @@ class ProductsTableSeeder extends Seeder
                 'image' => 'products/dummy/image3.jpg',
                 'images' => '["products/dummy/image3.jpg", "products/dummy/image3.jpg", "products/dummy/image3.jpg"]',
                 'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, nisi. Exercitationem, explicabo obcaecati dicta libero inventore soluta ducimus, necessitatibus quaerat magnam sapiente mollitia eum beatae quidem et perferendis quis similique.',
+                'quantity' => 10
             ]);
         }
         for ($i=0; $i < 20; $i++) {
@@ -70,6 +74,7 @@ class ProductsTableSeeder extends Seeder
                 'image' => 'products/dummy/image4.jpg',
                 'images' => '["products/dummy/image4.jpg", "products/dummy/image4.jpg", "products/dummy/image4.jpg"]',
                 'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, nisi. Exercitationem, explicabo obcaecati dicta libero inventore soluta ducimus, necessitatibus quaerat magnam sapiente mollitia eum beatae quidem et perferendis quis similique.',
+                'quantity' => 10
             ]);
         }
         for ($i=0; $i < 20; $i++) {
@@ -82,6 +87,7 @@ class ProductsTableSeeder extends Seeder
                 'image' => 'products/dummy/image5.jpg',
                 'images' => '["products/dummy/image5.jpg", "products/dummy/image5.jpg", "products/dummy/image5.jpg"]',
                 'description' => 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora, nisi. Exercitationem, explicabo obcaecati dicta libero inventore soluta ducimus, necessitatibus quaerat magnam sapiente mollitia eum beatae quidem et perferendis quis similique.',
+                'quantity' => 10
             ]);
         }
         $products = Product::all();

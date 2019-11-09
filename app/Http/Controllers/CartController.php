@@ -35,9 +35,14 @@ class CartController extends Controller
 
     public function update($id) {
         session()->forget('coupon');
-        Cart::instance('default')->update($id, request()->quantity);
-        session()->flash('success', 'quantity updated successfully!');
-        return response()->json(['success' => ''], 200);
+        // dd(request()->all());
+        if(request()->productQuantity >= request()->quantity) {
+            Cart::instance('default')->update($id, request()->quantity);
+            session()->flash('success', 'quantity updated successfully!');
+            return response()->json(['success' => ''], 200);
+        }
+        session()->flash('error', 'not enough products');
+        return response()->json(['error' => ''], 405);
     }
 
     public function destroy($id, $cart) {

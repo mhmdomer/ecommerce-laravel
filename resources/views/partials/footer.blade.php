@@ -26,34 +26,3 @@
         <p>copyright &copy; Mohammed Omer Ali - All rights reserved 2019</p>
     </div>
 </footer>
-<style>
-    .algolia-autocomplete {
-        width: 100%;
-    }
-    .algolia-autocomplete .aa-input, .algolia-autocomplete .aa-hint {
-        width: 100%;
-    }
-    .algolia-autocomplete .aa-hint {
-        color: #999;
-    }
-    .algolia-autocomplete .aa-dropdown-menu {
-        width: 100%;
-        background-color: #fff;
-        border: 1px solid #999;
-        border-top: none;
-    }
-    .algolia-autocomplete .aa-dropdown-menu .aa-suggestion {
-        cursor: pointer;
-        padding: 5px 4px;
-    }
-    .algolia-autocomplete .aa-dropdown-menu .aa-suggestion.aa-cursor {
-        background-color: #B2D7FF;
-    }
-    .algolia-autocomplete .aa-dropdown-menu .aa-suggestion em {
-        font-weight: bold;
-        font-style: normal;
-    }
-</style>
-<script src="https://cdn.jsdelivr.net/npm/algoliasearch@3.35.0/dist/algoliasearchLite.min.js"></script>
-<script src="https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js"></script>
-<script src="{{ asset('js/algolia-autocomplete.js') }}"></script>

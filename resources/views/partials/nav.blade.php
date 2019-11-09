@@ -9,7 +9,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             {{ menu('main', 'partials.menu.main') }}
             <div>
-                <input id="searchbox" name="search" id="search" style="width:400px; margin:0;" id="search" class="form-control custom-border" placeholder="Search" aria-label="Search">
+                <input id="search" name="search" style="width:400px; margin:0;" id="search" class="form-control custom-border" placeholder="Search" aria-label="Search">
             </div>
             </div>
 
@@ -57,7 +57,7 @@
     var searcher = $('#search')
     searcher.on('keypress',function(e) {
         if(e.which == 13) {
-            if(search.val().length > 2){
+            if(searcher.val().length > 2){
                 location.href = 'http://localhost:8000/shop/search/' + searcher.val();
             } else {
                 alert('Minimun query length is 3');

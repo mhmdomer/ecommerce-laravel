@@ -8,8 +8,6 @@ Route::get('/shop', 'ShopController@index')->name('shop.index');
 Route::get('/shop/{product}', 'ShopController@show')->name('shop.show');
 Route::get('/shop/search/{query}', 'ShopController@search')->name('shop.search');
 
-// algolia search
-Route::get('/search-algolia', 'ShopController@searchAlgolia')->name('searchAlgolia');
 
 // Cart
 Route::get('/cart', 'CartController@index')->name('cart.index');

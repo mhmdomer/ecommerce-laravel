@@ -83,6 +83,9 @@ class EcommerceInstall extends Command
             '--class' => 'PermissionRoleTableSeederCustom'
         ]);
         $this->call('db:seed', [
+            '--class' => 'SettingsTableSeederCustom'
+        ]);
+        $this->call('db:seed', [
             '--class' => 'OrdersTableSeeder'
         ]);
         $this->call('db:seed', [

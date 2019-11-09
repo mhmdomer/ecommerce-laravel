@@ -41,7 +41,7 @@
                                 </button>
                             </td>
                             <td class="">
-                                <select class='quantity' data-id='{{ $item->rowId }}'>
+                                <select class='quantity' data-id='{{ $item->rowId }}' data-productQuantity='{{ $item->model->quantity }}'>
                                     @for ($i = 1; $i < 10; $i++)
                                         <option class="option" value="{{ $i }}" {{ $item->qty == $i ? 'selected' : '' }}>{{ $i }}</option>
                                     @endfor
@@ -137,12 +137,15 @@
 
 $(document).ready(function () {
     $('.quantity').on('change', function() {
-        axios.patch('/cart/' + this.getAttribute('data-id'), {quantity: this.value})
+        const id = this.getAttribute('data-id')
+        console.log(id)
+        const productQuantity = this.getAttribute('data-productQuantity')
+        axios.patch('/cart/' + id, {quantity: this.value, productQuantity: productQuantity})
             .then(response => {
                 console.log(response)
                 window.location.href = '{{ route('cart.index') }}'
             }).catch(error => {
-                console.log(error)
+                window.location.href = '{{ route('cart.index') }}'
             })
     });
 });

@@ -171,6 +171,20 @@ class DataRowsTableSeederCustom extends Seeder
             ])->save();
         }
 
+        $dataRow = $this->dataRow($productDataType, 'quantity');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'number',
+                'display_name' => 'Quantity',
+                'required'     => 1,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 1,
+                'add'          => 1,
+                'delete'       => 0,
+                'order'        => 11,
+            ])->save();
+        }
 
         $dataRow = $this->dataRow($productDataType, 'product_belongsto_category_relationship');
         if (!$dataRow->exists) {
@@ -193,7 +207,7 @@ class DataRowsTableSeederCustom extends Seeder
                     'pivot_table' => 'category',
                     'pivot'       => 0,
                 ],
-                'order'        => 11,
+                'order'        => 12,
             ])->save();
         }
 
@@ -219,7 +233,7 @@ class DataRowsTableSeederCustom extends Seeder
                     'pivot'       => '1',
                     'taggable'    => 'on',
                 ],
-                'order'        => 12,
+                'order'        => 13,
             ])->save();
         }
 
@@ -234,7 +248,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'order'        => 13,
+                'order'        => 14,
             ])->save();
         }
 
@@ -249,7 +263,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'order'        => 14,
+                'order'        => 15,
             ])->save();
         }
 

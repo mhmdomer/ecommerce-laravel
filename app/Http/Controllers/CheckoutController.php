@@ -10,6 +10,7 @@ use App\OrderProduct;
 use Cartalyst\Stripe\Stripe;
 use Mail;
 use App\Mail\OrderPlaced;
+use App\Product;
 
 class CheckoutController extends Controller
 {
@@ -34,6 +35,9 @@ class CheckoutController extends Controller
     }
 
     public function store(CheckoutRequest $request) {
+        if($this->productsAreNoLongerAvailable()) {
+            return back()->withError('Sorry, one of the items on your cart is no longer available');
+        }
         $contents = Cart::instance('default')->content()->map(function($item) {
             return $item->model->slug . ', ' . $item->qty;
         })->values()->toJson();
@@ -54,9 +58,10 @@ class CheckoutController extends Controller
             // ]);
             
             $order = $this->insertIntoOrdersTable($request, null);
-            Mail::to('me@me.com')->send(new OrderPlaced($order));
             
             // SUCCESSFUL
+            $this->decreaseQuantities();
+            Mail::to('me@me.com')->send(new OrderPlaced($order));
             Cart::instance('default')->destroy();
             session()->forget('coupon');
             return redirect()->route('welcome')->with('success', 'Your order is completed successfully!');
@@ -72,6 +77,9 @@ class CheckoutController extends Controller
         $discount = session()->get('coupon')['discount'] ?? 0;
         $code = session()->get('coupon')['code'] ?? null;
         $newSubtotal = Cart::instance('default')->subtotal() - $discount;
+        if($newSubtotal < 0) {
+            $newSubtotal = 0;
+        }
         $newTax = $newSubtotal * $tax;
         $newTotal = $newSubtotal + $newTax;
         return collect([
@@ -111,5 +119,22 @@ class CheckoutController extends Controller
             ]);
         }
         return $order;
+    }
+
+    private function decreaseQuantities() {
+        foreach (Cart::instance('default')->content() as $item) {
+            $product = Product::find($item->model->id);
+            $product->update(['quantity' => $product->quantity - $item->qty]);
+        }
+    }
+
+    private function productsAreNoLongerAvailable() {
+        foreach (Cart::instance('default')->content() as $item) {
+            $product = Product::find($item->model->id);
+            if($product->quantity < $item->qty) {
+                return true;
+            }
+        }
+        return false;
     }
 }

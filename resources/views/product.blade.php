@@ -21,16 +21,19 @@
         </div>
         <div class="product-details col-md-5 offset-md-1">
             <h2 class="lead">{{ $product->name }}</h2>
+            <span class="badge badge-success" style="font-size: 1em">{{ $stockLevel }}</span>
             <p class="light-text">{{ $product->details }}</p>
             <h3 class="lead">$ {{ format($product->price) }}</h3>
             <p class="light-text">{!! $product->description !!}</p>
-            <form action="{{ route('cart.store') }}" method="POST">
-                @csrf()
-                <input type="hidden" name="id" value="{{ $product->id }}">
-                <input type="hidden" name="name" value="{{ $product->name }}">
-                <input type="hidden" name="price" value="{{ $product->price }}">
-                <button type="submit" class="btn custom-border-n">Add to Cart</button>
-            </form>
+            @if ($product->quantity > 0)
+                <form action="{{ route('cart.store') }}" method="POST">
+                    @csrf()
+                    <input type="hidden" name="id" value="{{ $product->id }}">
+                    <input type="hidden" name="name" value="{{ $product->name }}">
+                    <input type="hidden" name="price" value="{{ $product->price }}">
+                    <button type="submit" class="btn custom-border-n">Add to Cart</button>
+                </form>
+            @endif
         </div>
     </div>
     <!-- <hr> -->
