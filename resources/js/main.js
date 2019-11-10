@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $(".hero-text").animate({left: '100px', top: '100px'}, 1500);
+    $(".hero-text").animate({left: '100px', top: '10px'}, 1500);
     $('.heart').click(function (e) {
         e.preventDefault();
         if($(this).find('i').attr('class') == 'fa fa-heart'){

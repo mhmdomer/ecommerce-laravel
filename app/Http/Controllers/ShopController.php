@@ -38,7 +38,7 @@ class ShopController extends Controller
             'products' => $products,
             'categories'=> $categories,
             'tags'=> $tags,
-            'categoryName' => $categoryName ?? null,
+        'categoryName' => $categoryName ?? null,
             'tagName' => $tagName ?? null
             ]);
     }
