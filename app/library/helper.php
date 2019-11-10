@@ -1,6 +1,7 @@
 <?php
 
 function productImage($path) {
+    dd(file_exists('storage/' . $path));
     return $path && file_exists('storage/app/public/' . $path) ? asset('storage/app/public/' . $path) : asset('images/not-found.jpg');
 }
 
