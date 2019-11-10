@@ -10,8 +10,8 @@
                 Welcome to the site Welcome to the site
             </h3>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, assumenda. Culpa, libero.</p>
-            <button class="btn custom-border my-2 my-sm-0">click me</button>
-            <button class="btn custom-border my-2 my-sm-0">click me</button>
+            <button class="btn custom-border my-2 my-sm-0">Shop</button>
+            <button class="btn custom-border my-2 my-sm-0">Contact Us</button>
         </div>
     </div>
 </div>
@@ -20,7 +20,7 @@
 <div class="container">
     <div class="content-head">
         <h2 style="text-align:center; font-weight: bold">Ecommerce</h2>
-        <p style="text-align: center">Lorem ipsum dolor sit amet consectetur adipisicing elit. cupiditate</h2>
+        <p style="text-align: center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam accusamus eos quibusdam, esse voluptates voluptatibus id corporis facere neque amet alias molestias itaque ex porro architecto blanditiis distinctio maxime laboriosam.</h2>
     </div>
     <h2 class="header text-center">Featured Products</h2>
     <!-- start products row -->
