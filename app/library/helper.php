@@ -1,7 +1,7 @@
 <?php
 
 function productImage($path) {
-    return $path && file_exists('public/images' . $path) ? asset('images/' . $path) : asset('images/not-found.jpg');
+    return $path && file_exists('images/' . $path) ? asset('images/' . $path) : asset('images/not-found.jpg');
 }
 
 function format($price) {
