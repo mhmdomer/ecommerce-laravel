@@ -68,7 +68,7 @@
             <hr>
             <h3>Your Order</h3>
             <hr>
-            <table class="table table-borderless">
+            <table class="table table-borderless table-responsive">
                 <tbody>
                     @foreach (Cart::instance('default')->content() as $item)
                         <tr>

@@ -7,8 +7,8 @@
     <div class="row">
         <div class="col-md-10 offset-md-1">
             @if (Cart::instance('default')->count() > 0)
-            <h3 class="lead">{{ Cart::instance('default')->count() }} items in the shopping cart</h3>
-            <table class="table">
+            <h3 class="lead mt-4">{{ Cart::instance('default')->count() }} items in the shopping cart</h3>
+            <table class="table table-responsive">
                 <tbody>
                     @foreach (Cart::instance('default')->content() as $item)
                         <tr>
@@ -81,7 +81,7 @@
             <hr>
             @if (Cart::instance('saveForLater')->count() > 0)
                 <h3 class="lead">{{ Cart::instance('saveForLater')->count() }} item saved for later</h3>
-                <table class="table">
+                <table class="table table-responsive">
                     <tbody>
                         @foreach (Cart::instance('saveForLater')->content() as $item)
                             <tr>
@@ -119,7 +119,7 @@
 
                 </table>
             @else
-                <div class="alert alert-primary">
+                <div class="alert alert-primary" style="margin:2em">
                     <li>No items saved for later</li>
                 </div>
             @endif
