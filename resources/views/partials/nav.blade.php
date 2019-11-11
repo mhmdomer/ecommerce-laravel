@@ -59,7 +59,7 @@
         if(e.which == 13) {
             if(searcher.val().length > 2){
                 var getUrl = window.location;
-                var baseUrl = getUrl .protocol + "/" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+                var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
                 location.href = baseUrl + '/shop/search/' + searcher.val();
             } else {
                 alert('Minimun query length is 3');

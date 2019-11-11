@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="product-details col-md-5 offset-md-1">
-            <h2 class="lead">{{ $product->name }}</h2>
+            <h2 class="lead" style="margin-top:1em">{{ $product->name }}</h2>
             <span class="badge badge-success" style="font-size: 1em">{{ $stockLevel }}</span>
             <p class="light-text">{{ $product->details }}</p>
             <h3 class="lead">$ {{ format($product->price) }}</h3>
