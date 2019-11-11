@@ -49488,8 +49488,8 @@ __webpack_require__.r(__webpack_exports__);
 
 $(document).ready(function () {
   $(".hero-text").animate({
-    left: '100px',
-    top: '10px'
+    left: '0px',
+    top: '30px'
   }, 1500);
   $('.heart').click(function (e) {
     e.preventDefault();
