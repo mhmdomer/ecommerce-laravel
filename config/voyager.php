@@ -2,7 +2,7 @@
 
 return [
 
-    'password' => env('VOYAGER_ADMIN_PASSWORD'),
+    'password' => env('VOYAGER_ADMIN_PASSWORD', 'password'),
 
     'user' => [
         'add_default_role_on_register' => true,
