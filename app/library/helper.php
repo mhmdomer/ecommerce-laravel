@@ -1,8 +1,8 @@
 <?php
 
 function productImage($path) {
-    dd($path);
-    return $path && file_exists('public/images/' . $path) ? asset('public/images/' . $path) : asset('images/not-found.jpg');
+    // dd($path);
+    return $path && file_exists('images/' . $path) ? asset('images/' . $path) : asset('images/not-found.jpg');
     // return $path && file_exists('storage/' . $path) ? asset('storage/' . $path) : asset('images/not-found.jpg');
 }
 
