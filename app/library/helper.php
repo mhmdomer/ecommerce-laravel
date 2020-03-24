@@ -2,7 +2,7 @@
 
 function productImage($path) {
 
-    return $path && file_exists('public/images/' . $path) ? asset('storage/' . $path) : asset('images/not-found.jpg');
+    return $path && file_exists('public/images/' . $path) ? asset('public/images/' . $path) : asset('images/not-found.jpg');
     // return $path && file_exists('storage/' . $path) ? asset('storage/' . $path) : asset('images/not-found.jpg');
 }
 
