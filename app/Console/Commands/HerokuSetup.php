@@ -44,7 +44,7 @@ class HerokuSetup extends Command
             $this->proceed();
         }            
     }
-
+    
     protected function proceed() {
         File::deleteDirectory(public_path('storage/products/dummy'));
         File::deleteDirectory(public_path('storage/users'));
