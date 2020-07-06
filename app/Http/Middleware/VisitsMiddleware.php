@@ -17,19 +17,25 @@ class VisitsMiddleware
      */
     public function handle($request, Closure $next)
     {
-        // session()->put('visited', true);
-        // dd(session('visited'));
-        if(!session('visited')) {
-            $country = geoip($request->ip())->country;
+        if (!session('visited')) {
+            $country = geoip(getHerokuRealClientIp())->country;
             $visit = CountryVisits::firstOrCreate([
                 'country' => $country
             ]);
             $visit->incrementVisits();
             session(['visited' => 'visited']);
-            // dd(session('visited'));
             Session::save();
-            // dd(Session::get('visited'));
         }
         return $next($request);
+    }
+
+    private function getHerokuRealClientIp()
+    {
+        if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ipAddresses = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+            return trim(end($ipAddresses));
+        } else {
+            return $_SERVER['REMOTE_ADDR'];
+        }
     }
 }
