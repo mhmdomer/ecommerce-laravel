@@ -1,5 +1,6 @@
 <?php
 
+use App\CountryVisits;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 // Shop and welcome
@@ -17,19 +18,26 @@ Route::post('/cart/save-later/{product}', 'CartController@saveLater')->name('car
 Route::post('/cart/add-to-cart/{product}', 'CartController@addToCart')->name('cart.add-to-cart');
 Route::patch('/cart/{product}', 'CartController@update')->name('cart.update');
 
-// // checkout
+// checkout
 Route::get('/checkout', 'CheckoutController@index')->name('checkout.index');
 Route::post('/checkout', 'CheckoutController@store')->name('checkout.store');
 Route::get('/guest-checkout', 'CheckoutController@index')->name('checkout.guest');
 
-// // coupon
+// coupon
 Route::post('/coupon', 'CouponsController@store')->name('coupon.store');
 Route::delete('/coupon/', 'CouponsController@destroy')->name('coupon.destroy');
 
+// auth routes
 Auth::routes();
+Route::get('/login/{provider}', 'Auth\LoginController@redirectToProvider');
+Route::get('/login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+    Route::get('/country_visits', function() {
+        $countryVisits = CountryVisits::orderBy('visits')->paginate(10);
+        return view('admin.visits')->with(['countryVisits' => $countryVisits]);
+    })->name('voyager.visits');
 });

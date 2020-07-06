@@ -163,6 +163,22 @@ class MenuItemsTableSeederCustom extends Seeder
             ])->save();
         }
 
+        $menuItem = MenuItem::firstOrNew([
+            'menu_id' => $menu->id,
+            'title'   => 'Country Visits',
+            'url'     => '',
+            'route'   => 'voyager.visits',
+        ]);
+        if (!$menuItem->exists) {
+            $menuItem->fill([
+                'target'     => '_self',
+                'icon_class' => 'voyager-pie-chart',
+                'color'      => null,
+                'parent_id'  => null,
+                'order'      => 20,
+            ])->save();
+        }
+
     }
 
 }
