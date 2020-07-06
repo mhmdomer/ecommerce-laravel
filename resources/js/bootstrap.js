@@ -12,6 +12,8 @@ try {
 
 window.AOS = require("AOS");
 
+window.Chart = require('chart.js');
+
 window.axios = require('axios');
 
 
