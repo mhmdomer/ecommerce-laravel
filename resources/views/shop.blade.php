@@ -45,7 +45,7 @@
                     @foreach ($products as $product)
                         <!-- start single product -->
                         <div class="col-md-6 col-sm-12 col-lg-4 product"
-                        data-aos="fade-out"
+                        data-aos="fade-up"
                         data-aos-offset="-100"
                         data-aos-delay="10"
                         data-aos-duration="300"
