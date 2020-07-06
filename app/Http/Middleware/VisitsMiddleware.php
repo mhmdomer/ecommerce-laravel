@@ -18,7 +18,13 @@ class VisitsMiddleware
     public function handle($request, Closure $next)
     {
         if (!session('visited')) {
-            $country = geoip(getHerokuRealClientIp())->country;
+            if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+                $ipAddresses = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
+                $ipAddresses =  trim(end($ipAddresses));
+            } else {
+                $ipAddresses = $_SERVER['REMOTE_ADDR'];
+            }
+            $country = geoip($ipAddresses)->country;
             $visit = CountryVisits::firstOrCreate([
                 'country' => $country
             ]);
@@ -29,13 +35,4 @@ class VisitsMiddleware
         return $next($request);
     }
 
-    function getHerokuRealClientIp()
-    {
-        if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            $ipAddresses = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
-            return trim(end($ipAddresses));
-        } else {
-            return $_SERVER['REMOTE_ADDR'];
-        }
-    }
 }
