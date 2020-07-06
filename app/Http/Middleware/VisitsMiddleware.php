@@ -29,7 +29,7 @@ class VisitsMiddleware
         return $next($request);
     }
 
-    private function getHerokuRealClientIp()
+    function getHerokuRealClientIp()
     {
         if (isset($_SERVER['HTTP_X_FORWARDED_FOR'])) {
             $ipAddresses = explode(',', $_SERVER['HTTP_X_FORWARDED_FOR']);
