@@ -49,12 +49,14 @@ class EcommerceInstall extends Command
         File::deleteDirectory(public_path('storage/products/dummy'));
         File::deleteDirectory(public_path('storage/users'));
         $this->call('storage:link');
-        $copySuccess1 = File::copyDirectory(public_path('/images/products'), public_path('storage/products/dummy'));
+        if(!file_exists('products/dummy')) {
+            $copySuccess1 = File::copyDirectory(public_path('/images/products/dummy'), public_path('storage/products/dummy'));
+        }
         $copySuccess2 = File::copyDirectory(public_path('/images/users'), public_path('storage/users'));
         if($copySuccess1 && $copySuccess2) {
             $this->info('Images successfully moved to storage folder');
         }
-        $this->call('migrate:refresh', [
+        $this->call('migrate:fresh', [
             '--seed' => true
         ]);
         $this->info('cleared the database and seeded basic tables successfully');
@@ -65,25 +67,7 @@ class EcommerceInstall extends Command
             '--class' => 'VoyagerDummyDatabaseSeeder'
         ]);
         $this->call('db:seed', [
-            '--class' => 'DataTypesTableSeederCustom'
-        ]);
-        $this->call('db:seed', [
-            '--class' => 'DataRowsTableSeederCustom'
-        ]);
-        $this->call('db:seed', [
-            '--class' => 'MenusTableSeederCustom'
-        ]);
-        $this->call('db:seed', [
-            '--class' => 'MenuItemsTableSeederCustom'
-        ]);
-        $this->call('db:seed', [
-            '--class' => 'PermissionsTableSeederCustom'
-            ]);
-        $this->call('db:seed', [
-            '--class' => 'PermissionRoleTableSeederCustom'
-        ]);
-        $this->call('db:seed', [
-            '--class' => 'SettingsTableSeederCustom'
+            '--class' => 'VoyagerDatabaseSeederCustom'
         ]);
         $this->call('db:seed', [
             '--class' => 'OrdersTableSeeder'

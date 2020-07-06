@@ -11,11 +11,32 @@ class DataRowsTableSeederCustom extends Seeder
      */
     public function run()
     {
+        $userDataType = DataType::where('slug', 'users')->firstOrFail();
         $productDataType = DataType::where('slug', 'products')->firstOrFail();
         $categoryDataType = DataType::where('slug', 'category')->firstOrFail();
         $couponDataType = DataType::where('slug', 'coupons')->firstOrFail();
         $tagDataType = DataType::where('slug', 'tags')->firstOrFail();
         $orderDataType = DataType::where('slug', 'orders')->firstOrFail();
+
+        // START USER SECTION
+
+        $dataRow = $this->dataRow($userDataType, 'provider_id');
+        if (!$dataRow->exists) {
+            $dataRow->fill([
+                'type'         => 'text',
+                'display_name' => 'Provider',
+                'required'     => 0,
+                'browse'       => 1,
+                'read'         => 1,
+                'edit'         => 0,
+                'add'          => 0,
+                'delete'       => 0,
+                'order'        => 13,
+            ])->save();
+        }
+
+        // END USER SECTION
+
 
         // START PRODUCT SECTION //
 

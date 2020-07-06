@@ -36,6 +36,8 @@ class PermissionsTableSeederCustom extends Seeder
         Permission::generateFor('product_tag');
         
         Permission::generateFor('orders');
+
+        Permission::generateFor('country_visits');
         
     }
 }

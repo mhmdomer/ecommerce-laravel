@@ -56,6 +56,12 @@
                                 <button type="submit" class="btn btn-success custom-border">
                                     {{ __('Login') }}
                                 </button>
+                                {{-- <a href="/login/github" class="block btn btn-success">
+                                    Login with Github
+                                </a>
+                                <a href="/login/facebook" class="block btn btn-success">
+                                    Login with Facebook
+                                </a> --}}
                                 @if (str_replace(url('/'), '', url()->previous()) == '/cart')
                                     <a href="{{ route('checkout.guest'  ) }}" class="btn btn-primary custom-border">
                                         Guest checkout
