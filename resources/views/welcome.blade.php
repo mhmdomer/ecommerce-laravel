@@ -29,7 +29,7 @@
             <!-- start single product -->
             <div class="col-md-6 col-sm-12 col-lg-4 product" 
             data-aos="fade-out"
-            data-aos-offset="60"
+            data-aos-offset="-100"
             data-aos-delay="10"
             data-aos-duration="300"
             data-aos-easing="ease-in-out"
@@ -67,9 +67,9 @@
             <!-- start single product -->
             <div class="col-md-6 col-sm-12 col-lg-4 product"
             data-aos="fade-out"
-            data-aos-offset="60"
+            data-aos-offset="-100"
             data-aos-delay="10"
-            data-aos-duration="300"
+            data-aos-duration="300" 
             data-aos-easing="ease-in-out"
             data-aos-mirror="true"
             data-aos-once="false"
