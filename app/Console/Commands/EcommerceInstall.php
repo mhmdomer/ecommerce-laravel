@@ -46,12 +46,9 @@ class EcommerceInstall extends Command
     }
 
     protected function proceed() {
-        File::deleteDirectory(public_path('storage/products/dummy'));
-        File::deleteDirectory(public_path('storage/users'));
+        $result = unlink(public_path('storage'));
         $this->call('storage:link');
-        if(!file_exists('products/dummy')) {
-            $copySuccess1 = File::copyDirectory(public_path('/images/products/dummy'), public_path('storage/products/dummy'));
-        }
+        $copySuccess1 = File::copyDirectory(public_path('/images/products/dummy'), public_path('storage/products/dummy'));
         $copySuccess2 = File::copyDirectory(public_path('/images/users'), public_path('storage/users'));
         if($copySuccess1 && $copySuccess2) {
             $this->info('Images successfully moved to storage folder');
