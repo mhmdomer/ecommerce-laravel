@@ -2,16 +2,7 @@
 @section('title', $product->name)
 @section('content')
 
-<div class="container"
- data-aos="fade-in"
- data-aos-offset="200"
- data-aos-delay="50"
- data-aos-duration="1000"
- data-aos-easing="ease-in-out"
- data-aos-mirror="true"
- data-aos-once="false"
- data-aos-anchor-placement="top-center"
- >
+<div class="container">
 
     <div class="row" style="margin-bottom: 3em">
         <div class="col-md-4 product-image">
@@ -72,7 +63,7 @@
                     })
                 }
             });
-            
+
         });
     </script>
 

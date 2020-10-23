@@ -27,15 +27,7 @@
     <div class="row">
         @foreach ($products as $product)
             <!-- start single product -->
-            <div class="col-md-6 col-sm-12 col-lg-4 product" 
-            data-aos="fade-up"
-            data-aos-offset="-100"
-            data-aos-delay="10"
-            data-aos-duration="300"
-            data-aos-easing="ease-in-out"
-            data-aos-mirror="true"
-            data-aos-once="false"
-            data-aos-anchor-placement="top-center">
+            <div class="col-md-6 col-sm-12 col-lg-4 product">
                 <a href="{{ route('shop.show', $product->slug) }}" class="custom-card">
                     <div class="card view overlay zoom">
                         <img src="{{ productImage($product->image) }}" class="card-img-top img-fluid" alt="...">
@@ -65,15 +57,7 @@
     <div class="row">
         @foreach ($hotProducts as $product)
             <!-- start single product -->
-            <div class="col-md-6 col-sm-12 col-lg-4 product"
-            data-aos="fade-up"
-            data-aos-offset="-100"
-            data-aos-delay="10"
-            data-aos-duration="300" 
-            data-aos-easing="ease-in-out"
-            data-aos-mirror="true"
-            data-aos-once="false"
-            data-aos-anchor-placement="top-center">
+            <div class="col-md-6 col-sm-12 col-lg-4 product">
                 <a href="{{ route('shop.show', $product->slug) }}" class="custom-card">
                     <div class="card view overlay zoom">
                         <img src="{{ productImage($product->image) }}" class="card-img-top img-fluid" alt="...">
