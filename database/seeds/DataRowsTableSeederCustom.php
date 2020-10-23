@@ -98,6 +98,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'add'          => 1,
                 'delete'       => 1,
                 'order'        => 4,
+                'details'      => json_decode('{"validation":{"rule":"required"}}'),
             ])->save();
         }
 
@@ -113,6 +114,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'add'          => 1,
                 'delete'       => 1,
                 'order'        => 5,
+                'details'      => json_decode('{"validation":{"rule":"required"}}'),
             ])->save();
         }
 
@@ -174,6 +176,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'add'          => 1,
                 'delete'       => 1,
                 'order'        => 9,
+                'details'      => json_decode('{"validation":{"rule":"required"}}'),
             ])->save();
         }
 
@@ -189,6 +192,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'add'          => 1,
                 'delete'       => 0,
                 'order'        => 10,
+                'details'      => json_decode('{"validation":{"rule":"required"}}'),
             ])->save();
         }
 
@@ -204,6 +208,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'add'          => 1,
                 'delete'       => 0,
                 'order'        => 11,
+                'details'      => json_decode('{"validation":{"rule":"required"}}'),
             ])->save();
         }
 
