@@ -26,7 +26,7 @@
     },
     "dependencies": {
         "aos": "^3.0.0-beta.6",
-        "chart.js": "^2.9.3",
+        "chart.js": "^2.9.4",
         "font-awesome": "^4.7.0"
     }
 }
