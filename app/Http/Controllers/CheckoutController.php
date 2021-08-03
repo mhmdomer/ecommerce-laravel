@@ -14,14 +14,15 @@ use App\Product;
 
 class CheckoutController extends Controller
 {
-    
 
-    public function index() {
-        if(Cart::instance('default')->count() > 0) {
+
+    public function index()
+    {
+        if (Cart::instance('default')->count() > 0) {
             $subtotal = Cart::instance('default')->subtotal() ?? 0;
             $discount = session('coupon')['discount'] ?? 0;
             $newSubtotal = $subtotal - $discount > 0 ? $subtotal - $discount : 0;
-            $tax = $newSubtotal * (config('cart.tax')/100);
+            $tax = $newSubtotal * (config('cart.tax') / 100);
             $total = $tax + $newSubtotal;
             return view('checkout')->with([
                 'subtotal' => $subtotal,
@@ -34,11 +35,12 @@ class CheckoutController extends Controller
         return redirect()->route('cart.index')->withError('You have nothing in your cart , please add some products first');
     }
 
-    public function store(CheckoutRequest $request) {
-        if($this->productsAreNoLongerAvailable()) {
+    public function store(CheckoutRequest $request)
+    {
+        if ($this->productsAreNoLongerAvailable()) {
             return back()->withError('Sorry, one of the items on your cart is no longer available');
         }
-        $contents = Cart::instance('default')->content()->map(function($item) {
+        $contents = Cart::instance('default')->content()->map(function ($item) {
             return $item->model->slug . ', ' . $item->qty;
         })->values()->toJson();
 
@@ -56,28 +58,28 @@ class CheckoutController extends Controller
             //         'discount' => session()->has('coupon') ? collect(session('coupon')->toJson) : null,
             //     ],
             // ]);
-            
+
             $order = $this->insertIntoOrdersTable($request, null);
-            
+
             // SUCCESSFUL
             $this->decreaseQuantities();
             Mail::to('me@me.com')->send(new OrderPlaced($order));
             Cart::instance('default')->destroy();
             session()->forget('coupon');
             return redirect()->route('welcome')->with('success', 'Your order is completed successfully!');
-            
-        } catch(Exception $e) {
+        } catch (Exception $e) {
             $this->insertIntoOrdersTable($request, $e->getMessage());
             return back()->withError('Error ' . $e->getMessage());
         }
     }
 
-    private function getNumbers() {
+    private function getNumbers()
+    {
         $tax = config('cart.tax') / 100;
         $discount = session()->get('coupon')['discount'] ?? 0;
         $code = session()->get('coupon')['code'] ?? null;
         $newSubtotal = Cart::instance('default')->subtotal() - $discount;
-        if($newSubtotal < 0) {
+        if ($newSubtotal < 0) {
             $newSubtotal = 0;
         }
         $newTax = $newSubtotal * $tax;
@@ -92,7 +94,8 @@ class CheckoutController extends Controller
         ]);
     }
 
-    private function insertIntoOrdersTable($request, $error) {
+    private function insertIntoOrdersTable($request, $error)
+    {
         $order = Order::create([
             'user_id' => auth()->user() ? auth()->user()->id : null,
             'billing_email' => $request->email,
@@ -121,17 +124,19 @@ class CheckoutController extends Controller
         return $order;
     }
 
-    private function decreaseQuantities() {
+    private function decreaseQuantities()
+    {
         foreach (Cart::instance('default')->content() as $item) {
             $product = Product::find($item->model->id);
             $product->update(['quantity' => $product->quantity - $item->qty]);
         }
     }
 
-    private function productsAreNoLongerAvailable() {
+    private function productsAreNoLongerAvailable()
+    {
         foreach (Cart::instance('default')->content() as $item) {
             $product = Product::find($item->model->id);
-            if($product->quantity < $item->qty) {
+            if ($product->quantity < $item->qty) {
                 return true;
             }
         }

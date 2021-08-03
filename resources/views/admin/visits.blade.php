@@ -48,115 +48,52 @@
     let myChart = document.getElementById('products_status').getContext('2d');
     let myChart2 = document.getElementById('products_status2').getContext('2d');
     let myChart3 = document.getElementById('products_status3').getContext('2d');
-    let chart = new Chart(myChart, {
-        type: 'pie'
-        , data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
-            , datasets: [{
-                label: '# of Votes'
-                , data: [12, 19, 3, 5, 2, 3]
-                , backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)'
-                    , 'rgba(54, 162, 235, 0.2)'
-                    , 'rgba(255, 206, 86, 0.2)'
-                    , 'rgba(75, 192, 192, 0.2)'
-                    , 'rgba(153, 102, 255, 0.2)'
-                    , 'rgba(255, 159, 64, 0.2)'
-                ]
-                , borderColor: [
-                    'rgba(255, 99, 132, 1)'
-                    , 'rgba(54, 162, 235, 1)'
-                    , 'rgba(255, 206, 86, 1)'
-                    , 'rgba(75, 192, 192, 1)'
-                    , 'rgba(153, 102, 255, 1)'
-                    , 'rgba(255, 159, 64, 1)'
-                ]
-                , borderWidth: 1
-            }]
-        }
-        , options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
-    let chart2 = new Chart(myChart2, {
-        type: 'doughnut'
-        , data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
-            , datasets: [{
-                label: '# of Votes'
-                , data: [12, 19, 3, 5, 2, 3]
-                , backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)'
-                    , 'rgba(54, 162, 235, 0.2)'
-                    , 'rgba(255, 206, 86, 0.2)'
-                    , 'rgba(75, 192, 192, 0.2)'
-                    , 'rgba(153, 102, 255, 0.2)'
-                    , 'rgba(255, 159, 64, 0.2)'
-                ]
-                , borderColor: [
-                    'rgba(255, 99, 132, 1)'
-                    , 'rgba(54, 162, 235, 1)'
-                    , 'rgba(255, 206, 86, 1)'
-                    , 'rgba(75, 192, 192, 1)'
-                    , 'rgba(153, 102, 255, 1)'
-                    , 'rgba(255, 159, 64, 1)'
-                ]
-                , borderWidth: 1
-            }]
-        }
-        , options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
-                }]
-            }
-        }
-    });
+    let data = {!! json_encode($topCountries, JSON_HEX_TAG) !!};
 
-    let chart3 = new Chart(myChart3, {
-        type: 'bar'
-        , data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange']
-            , datasets: [{
-                label: '# of Votes'
-                , data: [12, 19, 3, 5, 2, 3]
-                , backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)'
-                    , 'rgba(54, 162, 235, 0.2)'
-                    , 'rgba(255, 206, 86, 0.2)'
-                    , 'rgba(75, 192, 192, 0.2)'
-                    , 'rgba(153, 102, 255, 0.2)'
-                    , 'rgba(255, 159, 64, 0.2)'
-                ]
-                , borderColor: [
-                    'rgba(255, 99, 132, 1)'
-                    , 'rgba(54, 162, 235, 1)'
-                    , 'rgba(255, 206, 86, 1)'
-                    , 'rgba(75, 192, 192, 1)'
-                    , 'rgba(153, 102, 255, 1)'
-                    , 'rgba(255, 159, 64, 1)'
-                ]
-                , borderWidth: 1
-            }]
-        }
-        , options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero: true
-                    }
+        let chart3 = new Chart(myChart3, {
+            type: 'bar'
+            , data: {
+                labels: data.map((item) => item.country)
+                , datasets: [{
+                    label: 'Top Countries'
+                    , data: data.map((item) => item.visits)
+                    , backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)'
+                        , 'rgba(54, 162, 235, 0.2)'
+                        , 'rgba(255, 206, 86, 0.2)'
+                        , 'rgba(75, 192, 192, 0.2)'
+                        , 'rgba(153, 102, 255, 0.2)'
+                        , 'rgba(255, 159, 64, 0.2)'
+                        , 'rgba(255, 30, 86, 0.2)'
+                        , 'rgba(75, 192, 20, 0.2)'
+                        , 'rgba(153, 102, 90, 0.2)'
+                        , 'rgba(200, 59, 64, 0.2)'
+                    ]
+                    , borderColor: [
+                        'rgba(255, 99, 132, 1)'
+                        , 'rgba(54, 162, 235, 1)'
+                        , 'rgba(255, 206, 86, 1)'
+                        , 'rgba(75, 192, 192, 1)'
+                        , 'rgba(153, 102, 255, 1)'
+                        , 'rgba(255, 159, 64, 1)'
+                        , 'rgba(255, 206, 186, 1)'
+                        , 'rgba(75, 192, 92, 1)'
+                        , 'rgba(15, 10, 255, 1)'
+                        , 'rgba(25, 159, 64, 1)'
+                    ]
+                    , borderWidth: 1
                 }]
             }
-        }
-    });
+            , options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
 
 </script>
 

@@ -40,8 +40,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
-    Route::get('/country_visits', function () {
-        $countryVisits = CountryVisits::orderBy('visits', 'desc')->paginate(10);
-        return view('admin.visits')->with(['countryVisits' => $countryVisits]);
-    })->name('voyager.visits');
+    Route::get('/country_visits', 'VisitsController@index')->name('voyager.visits');
 });
