@@ -2,6 +2,9 @@
 
 use App\CountryVisits;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Route;
+
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index')->middleware('admin');
 
 // Shop and welcome
 Route::get('/', 'WelcomePageController@index')->name('welcome');
@@ -36,7 +39,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
-    Route::get('/country_visits', function() {
+    Route::get('/country_visits', function () {
         $countryVisits = CountryVisits::orderBy('visits', 'desc')->paginate(10);
         return view('admin.visits')->with(['countryVisits' => $countryVisits]);
     })->name('voyager.visits');

@@ -19,6 +19,7 @@
         "laravel/ui": "^1.1",
         "nicolaslopezj/searchable": "^1.12",
         "predis/predis": "^1.1",
+        "rap2hpoutre/laravel-log-viewer": "^1.7",
         "tcg/voyager": "^1.3",
         "torann/geoip": "^1.2"
     },
