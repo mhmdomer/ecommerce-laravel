@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\CountryVisits;
+use App\CountryVisit;
 use Illuminate\Http\Request;
 
 class VisitsController extends Controller
 {
     public function index()
     {
-        $topCountries = CountryVisits::orderBy('visits', 'desc')->limit(10)
+        $topCountries = CountryVisit::orderBy('visits', 'desc')->limit(10)
             ->select('country', 'visits')->get();
 
-        $countryVisits = CountryVisits::orderBy('visits', 'desc')->paginate(10);
+        $CountryVisit = CountryVisit::orderBy('visits', 'desc')->paginate(10);
         return view('admin.visits')->with([
-            'countryVisits' => $countryVisits,
+            'CountryVisit' => $CountryVisit,
             'topCountries' => $topCountries,
         ]);
     }

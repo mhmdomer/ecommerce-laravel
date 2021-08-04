@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class CountryVisits extends Model
+class CountryVisit extends Model
 {
     protected $table = 'country_visits';
     protected $guarded = [];

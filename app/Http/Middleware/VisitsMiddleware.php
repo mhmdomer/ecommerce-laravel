@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use App\CountryVisits;
+use App\CountryVisit;
 use Illuminate\Support\Facades\Session;
 
 class VisitsMiddleware
@@ -25,7 +25,7 @@ class VisitsMiddleware
                 $ipAddresses = $_SERVER['REMOTE_ADDR'];
             }
             $country = geoip($ipAddresses)->country;
-            $visit = CountryVisits::firstOrCreate([
+            $visit = CountryVisit::firstOrCreate([
                 'country' => $country
             ]);
             $visit->incrementVisits();

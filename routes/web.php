@@ -1,6 +1,6 @@
 <?php
 
-use App\CountryVisits;
+use App\CountryVisit;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use TCG\Voyager\Facades\Voyager;

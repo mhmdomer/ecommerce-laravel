@@ -29,7 +29,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($countryVisits as $visit)
+                @foreach ($CountryVisit as $visit)
                 <tr>
                     <td>{{ $visit->country }}</td>
                     <td>{{ $visit->visits }}</td>
@@ -37,7 +37,7 @@
                 @endforeach
             </tbody>
         </table>
-        {{ $countryVisits->links() }}
+        {{ $CountryVisit->links() }}
     </div>
 </div>
 @endsection
