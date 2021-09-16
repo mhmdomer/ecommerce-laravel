@@ -7,9 +7,8 @@ use App\Product;
 
 class WelcomePageController extends Controller
 {
-
-    
-    public function index() {
+    public function index()
+    {
         $products = Product::inRandomOrder()->take(6)->get();
         $hotProducts = Product::inRandomOrder()->take(3)->get();
         return view('welcome')->with([
