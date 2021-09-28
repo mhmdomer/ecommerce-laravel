@@ -27,6 +27,7 @@ This repo is based on the [youtube series](https://www.youtube.com/playlist?list
 1. run `npm install && npm run dev`
 1. run `php artisan key:generate`
 1. run `php artisan ecommerce:install`
+1. credentials to access admin panel (email: `admin@admin.com`, password: `password`)
 
 -   Home Page
 
