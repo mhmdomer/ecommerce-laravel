@@ -10,7 +10,7 @@ try {
     console.log('an error accure')
 }
 
-window.AOS = require("AOS");
+window.AOS = require("aos");
 
 window.Chart = require('chart.js');
 
