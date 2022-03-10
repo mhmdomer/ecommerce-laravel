@@ -26,9 +26,11 @@
             </li>
             @endif
             @else
+            @if (auth()->user()->can('browse_admin'))
             <li class="nav-item">
                 <a class="nav-link" href="{{ url('/admin') }}">Admin Panel</a>
             </li>
+            @endif
             <li class="nav-item dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ Auth::user()->name }} <span class="caret"></span>

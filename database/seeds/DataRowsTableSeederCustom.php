@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use TCG\Voyager\Models\DataRow;
 use TCG\Voyager\Models\DataType;
@@ -444,7 +446,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 1,
                 'add'          => 1,
                 'delete'       => 1,
-                'details'      => json_decode('{"default":"fixed","options":{"fixed":"Fixed value","percent_off":"Percent Off"}}'), 
+                'details'      => json_decode('{"default":"fixed","options":{"fixed":"Fixed value","percent_off":"Percent Off"}}'),
                 'order'        => 3,
             ])->save();
         }
@@ -617,9 +619,9 @@ class DataRowsTableSeederCustom extends Seeder
                 'order'        => 6,
             ])->save();
         }
-        
+
         // END OF TAGS SECTION //
-        
+
         // START ORDERS SECTION //
 
         $dataRow = $this->dataRow($orderDataType, 'id');
@@ -803,7 +805,7 @@ class DataRowsTableSeederCustom extends Seeder
             ])->save();
         }
 
-        
+
 
         $dataRow = $this->dataRow($orderDataType, 'billing_tax');
         if (!$dataRow->exists) {
@@ -846,7 +848,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'details'      => json_decode('{"null": ""}'), 
+                'details'      => json_decode('{"null": ""}'),
                 'order'        => 15,
             ])->save();
         }
@@ -862,7 +864,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'details'      => json_decode('{"checked":"false","on":"Yes","off":"No"}'), 
+                'details'      => json_decode('{"checked":"false","on":"Yes","off":"No"}'),
                 'order'        => 16,
             ])->save();
         }
@@ -878,7 +880,7 @@ class DataRowsTableSeederCustom extends Seeder
                 'edit'         => 0,
                 'add'          => 0,
                 'delete'       => 0,
-                'details'      => json_decode('{"null": ""}'), 
+                'details'      => json_decode('{"null": ""}'),
                 'order'        => 17,
             ])->save();
         }
@@ -966,7 +968,7 @@ class DataRowsTableSeederCustom extends Seeder
         // END OF ORDERS SECTION //
     }
 
-    
+
 
 
     /**

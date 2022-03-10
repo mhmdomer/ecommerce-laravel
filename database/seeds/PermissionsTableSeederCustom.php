@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use TCG\Voyager\Models\Permission;
 
@@ -34,10 +36,10 @@ class PermissionsTableSeederCustom extends Seeder
         Permission::generateFor('tags');
 
         Permission::generateFor('product_tag');
-        
+
         Permission::generateFor('orders');
 
         Permission::generateFor('country_visits');
-        
+
     }
 }

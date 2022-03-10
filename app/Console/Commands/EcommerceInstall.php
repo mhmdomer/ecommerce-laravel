@@ -42,7 +42,7 @@ class EcommerceInstall extends Command
             $this->proceed();
         } else if($this->confirm('This will delete all your current data and database and install the default dummy data Are You Sure?')) {
             $this->proceed();
-        }            
+        }
     }
 
     protected function proceed() {

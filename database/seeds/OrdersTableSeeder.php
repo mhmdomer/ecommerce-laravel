@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use App\Order;
 use Faker\Factory as Faker;
@@ -14,7 +16,7 @@ class OrdersTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        for ($i=0; $i < 10; $i++) { 
+        for ($i=0; $i < 10; $i++) {
             Order::create([
                 'user_id' => rand(1, 2) == 1? 1 : null,
                 'billing_email' => $faker->email,

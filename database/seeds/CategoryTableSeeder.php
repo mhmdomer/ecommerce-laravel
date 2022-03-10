@@ -1,5 +1,7 @@
 <?php
 
+namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use App\Category;
 
@@ -36,6 +38,6 @@ class CategoryTableSeeder extends Seeder
             'name' => 'Cameras',
             'slug' => 'cameras'
         ]);
-    
+
     }
 }
