@@ -11,6 +11,7 @@ use Cartalyst\Stripe\Stripe;
 use Mail;
 use App\Mail\OrderPlaced;
 use App\Product;
+use App\User;
 
 class CheckoutController extends Controller
 {
@@ -63,7 +64,12 @@ class CheckoutController extends Controller
 
             // SUCCESSFUL
             $this->decreaseQuantities();
-            Mail::to('me@me.com')->send(new OrderPlaced($order));
+            // You should add this to your readme so that developers trying to run 
+            // this project can know that they need to add 
+            // SMTP details to their .env file  to make this work on a live server
+            // but for now I will comment it out since majority of developers will use this on local server
+
+           // Mail::to('me@me.com')->send(new OrderPlaced($order));
             Cart::instance('default')->destroy();
             session()->forget('coupon');
             return redirect()->route('welcome')->with('success', 'Your order is completed successfully!');
@@ -121,7 +127,20 @@ class CheckoutController extends Controller
                 'quantity' => $item->qty
             ]);
         }
-        return $order;
+
+        
+        // Users should be able to login and see their orders in their account
+        // I have added a functionality to create a user account with the order
+
+        $user = User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt('password'), // password will be users password
+        ]);
+
+        $user->orders()->save($order);
+
+        return $user;
     }
 
     private function decreaseQuantities()
