@@ -16,7 +16,6 @@
                     <h3>
                         Contact:
                     </h3>
-                    <p>Phone: +249126545060</p>
                     <p>Email: mohammedomer789@gmail.com</p>
                     <p>Website: <a href="https://mhmdomer.com">Personal Website</a></p>
                     <p>Github: <a href="https://github.com/mhmdomer">@mhmdomer</a></p>
