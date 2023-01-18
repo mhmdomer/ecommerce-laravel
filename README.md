@@ -29,7 +29,7 @@ This repo is based on the [youtube series](https://www.youtube.com/playlist?list
 1. run `php artisan ecommerce:install`
 1. run `php artisan serve` and then visit `http://127.0.0.1:8000/`
 1. credentials to access admin panel (email: `admin@admin.com`, password: `password`)
-
+1. after you login as admin, you can access the admin page from `http://127.0.0.1:8000/admin`
 -   Home Page
 
 ![Screenshot (35)](https://user-images.githubusercontent.com/39973541/68545143-e8aeb280-03d2-11ea-8bb1-1c245150e432.png)
