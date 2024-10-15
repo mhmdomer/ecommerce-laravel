@@ -64,7 +64,6 @@ class LoginController extends Controller
             $user = User::where('email', $providerUser->getEmail())->first();
         }
         if($user && $user->$provider . '_id' == null) {
-            dd('test');
             $user->update([$provider . '_id' => $providerUser->getId()]);
         }
         if(!$user) {

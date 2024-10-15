@@ -35,7 +35,6 @@ class CartController extends Controller
 
     public function update($id) {
         session()->forget('coupon');
-        // dd(request()->all());
         if(request()->productQuantity >= request()->quantity) {
             Cart::instance('default')->update($id, request()->quantity);
             session()->flash('success', 'quantity updated successfully!');
@@ -53,7 +52,7 @@ class CartController extends Controller
         session()->flash('success', 'item has been removed');
         return back();
     }
-    
+
     public function saveLater($id) {
         session()->forget('coupon');
         $item = Cart::get($id);
@@ -69,7 +68,7 @@ class CartController extends Controller
         session()->flash('success', 'Item has been saved for later');
         return redirect()->route('cart.index');
     }
-    
+
     public function addToCart($id) {
         session()->forget('coupon');
         $item = Cart::instance('saveForLater')->get($id);
